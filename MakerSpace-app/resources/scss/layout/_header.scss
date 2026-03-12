@@ -1,0 +1,120 @@
+
+.header{
+    width: 100%;
+    background-color: #121212;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    height: 120px;
+    color: #ffffff;
+    flex-direction: column;
+    font-family: "Geologica", sans-serif;
+
+    &__content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content:space-between;
+    width: 1440px;
+
+        &__content-logo-container {
+        display: flex;
+        align-items: center;
+        gap: 25px
+
+        span {
+            font-size: 21px;
+        }
+    }
+    }
+
+    &__info {
+        display: flex;
+        align-items: center;
+        gap: 25px;
+
+        &__container {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+
+            span {
+                font-size: 21px;
+            }
+
+            .upload-btn {
+                font-size: 14px;
+                background-color: #1A1A1A;
+                border: none;
+                width: 120px;
+                height: 40px;
+                color: white;
+                border-radius: 10px;
+                font-weight: 600;
+
+                i {
+                    margin-right: 5px;
+                }
+
+                &:hover {
+                    border: 2px dashed white;
+                    background-color: transparent;
+                    cursor: pointer;
+                }
+            }
+
+
+
+
+        }
+    }
+}
+
+.sub-header {
+    height: 70px;
+    background-color: #1A1A1A;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    margin-bottom: 25px;
+    flex-direction: row;
+    font-family: "Geologica", sans-serif;
+
+    &__container {
+        width: 1440px;
+            /* border: 1px solid red; */
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+         h1 {
+    font-size: 24px;
+    font-weight: 500;
+        
+    }
+        ul {
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+            gap: 70px;
+            font-weight: 500;
+            li {
+                color: #3B3B3B;
+
+                span {
+                    color: white;
+                }
+            }
+        }
+
+        a {
+            text-decoration: none;
+        }
+            }
+   
+}
+    
+
+
+

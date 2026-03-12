@@ -1,0 +1,40 @@
+
+:root {
+    --primary-color: #93D2ED;
+    --secondary-color: #328F7F;
+    --background-color: #121212;
+    --body-background-color: #070707;
+    --text-color: #ffffff;
+    --secondary-text-color: #858585;
+    --hover-color: #1A1A1A;
+    --main-gradient: linear-gradient(104deg, rgba(78, 173, 217, 1) 23%, rgba(50, 143, 127, 1) 60%);
+}
+:root{
+    --h1-font: 'Geologica', sans-serif;
+    --h1-size: 36px;
+    --h1-color: var(--text-color);
+
+    --subtitle-font: 'Geologica', sans-serif;
+    --subtitle-size: 24px;
+    --subtitle-color: var(--secondary-text-color);
+
+    --p-font:arial, sans-serif;
+    --p-size: 16px;
+    --p-color: var(--text-color);
+
+    --p-detail-font:arial, sans-serif;
+    --p-detail-size: 14px;
+    --p-detail-color: var(--secondary-text-color);
+}
+:root{
+    --regular-container-padding-top: 20px;
+    --regular-container-padding-bottom: 20px;
+    --regular-container-padding-left: 20px;
+    --regular-container-padding-right: 20px;
+}
+
+:root
+{
+    --reglar-border-radius: 10px;
+}
+
