@@ -15,7 +15,7 @@
     flex-direction: row;
     align-items: center;
     justify-content:space-between;
-    width: 1440px;
+    width: 1240px;
 
         &__content-logo-container {
         display: flex;
@@ -43,6 +43,11 @@
             }
 
             .upload-btn {
+                text-decoration: none;
+                display: flex;              
+                justify-content: center;     
+                align-items: center;         
+                text-align: center;
                 font-size: 14px;
                 background-color: #1A1A1A;
                 border: none;
@@ -54,8 +59,14 @@
 
                 i {
                     margin-right: 5px;
+                    align-items: center;
                 }
-
+                a{
+                    color: white;
+                    display: flex;           
+                    align-items: center;
+                    gap: 5px;        
+                }
                 &:hover {
                     border: 2px dashed white;
                     background-color: transparent;
@@ -70,6 +81,7 @@
     }
 }
 
+
 .sub-header {
     height: 70px;
     background-color: #1A1A1A;
@@ -81,7 +93,7 @@
     font-family: "Geologica", sans-serif;
 
     &__container {
-        width: 1440px;
+        width: 1240px;
             /* border: 1px solid red; */
         display: flex;
         flex-direction: row;
