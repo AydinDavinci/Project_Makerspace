@@ -29,6 +29,8 @@
             <img style="width: 50px; height: 50px;" src="{{ asset('images/No_Image_Available.jpg') }}" alt="image-of-product">        </div>
     </div>
 
+    <form action="{{ route('order-handeling') }}" method="POST">
+        @csrf
     <div class="rest">
         <p style="font-size: xx-large; margin-top: 125px; margin-left: 10px; color: white;" class="description"><span>Product</span> Description</p>
         <p style="font-size: medium; margin-left: 10px; color: white;" class="price">Estimated print time: 2 hours</p>
@@ -40,7 +42,7 @@
             <option value="petg">PETG</option>
         </select><br>
     <button style=" margin-top: 20px; margin-left: 10px;" class="order-btn">Order now</button>
-
+    </form>
     </div>
 </div>
 
