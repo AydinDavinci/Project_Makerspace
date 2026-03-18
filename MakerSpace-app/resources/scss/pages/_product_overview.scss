@@ -12,7 +12,7 @@ p {
 
 
 .Product{
-    margin-top: var(--regular-container-padding-top);
+    margin-top: 0px;
     background-color: var(--background-color);
     width: 900px;
     height: 550px;
@@ -96,4 +96,20 @@ p {
 .order-btn:hover::after {
     opacity: 1;
     transform: scale(1);
+}
+
+.advanced_settings_checkbox{
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+.advanced_settings_checkbox:hover {
+    cursor: pointer;
+}
+
+
+.color-selecter{
+    margin-left: 10px;
+    width: 250px;
+    border: none;
 }

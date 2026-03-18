@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product View</title>
-    <link rel="stylesheet" href="{{ asset('css/header.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/product_view.css') }}">
+    @vite(['resources/scss/app.scss', 'resources/js/app.js' , 'resources/js/advanced_settings.js'])
 
 
 </head>
@@ -35,14 +34,20 @@
         <p style="font-size: xx-large; margin-top: 125px; margin-left: 10px; color: white;" class="description"><span>Product</span> Description</p>
         <p style="font-size: medium; margin-left: 10px; color: white;" class="price">Estimated print time: 2 hours</p>
 
+        <input type="checkbox"class=advanced_settings_checkbox id="advanced_settings_checkbox" name="advanced_settings_checkbox">Advanced settings<br>
+        <div style="display: none;" class="advanced_settings">
         <label for="type_of_fillament" style="margin-left: 10px; margin-bottom: ; color: white;">Select a preferred fillament type <br></label>
         <select style="margin-left: 10px; margin-top: 20px; width: 220px;" name="type_of_fillament" id="type_of_fillament">
             <option value="pla">PLA</option>
             <option value="abs">ABS</option>
             <option value="petg">PETG</option>
-        </select><br>
-    <button style=" margin-top: 20px; margin-left: 10px;" class="order-btn">Order now</button>
-    </form>
+            </select><br>
+        <br>
+        <label for="color-selecter" style="margin-left: 10px; margin-bottom: 10px; color: white;">Select a preferred color <br></label>
+        <input class="color-selecter" type="color">
+        </div>
+        <button style=" margin-top: 20px; margin-left: 10px;" class="order-btn">Order now</button>
+        </form>
     </div>
 </div>
 
