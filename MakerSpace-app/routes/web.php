@@ -29,6 +29,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/profile/settings',[ProfileController::class,'settings'])->name('profile.settings');
 
 Route::get('/product-view', function () {
     return view('Product_view');

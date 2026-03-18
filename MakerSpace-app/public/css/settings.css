@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&family=Nunito:wght@100..900&display=swap');
+body {
+  background-color: #070707;
+}
+
+.Titel {
+    font-size: 48px;
+    color: white;
+    font-family: 'Geologica', sans-serif;
+    font-weight: 700; /* bold */
+}
+
+.Small-Titel {
+    font-size: 32px;
+    color: white;
+    font-family: 'Geologica', sans-serif;
+    font-weight: 700; /* bold */
+}
+
+
+.Box {
+    background-color: #121212;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 10px 30% 30px 3%;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.Box-Settings {
+    background-color: #121212;
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 10px 7% 30px 3%;
+    border-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.Wrap-Box {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+}
+
+.Info-Field{
+    font-size: 24px;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400; /* regular */
+}
+
+.Fill-in-Field {
+    background-color: #262626;
+    border-radius: 10px;
+    padding: 10px 60px 10px 10px;
+    opacity: 0.6;
+}
+
+.Save-Button {
+    background: linear-gradient(to right, #7fc0db, #2a7a6c);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 15px;
+    opacity: 0.8;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400; /* regular */
+}
+
+.Save-Button:hover {
+    background: linear-gradient(to right, #7fc0db, #2a7a6c);
+    opacity: 1;
+}
+
+.Toggle-Field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+}
+
+.Toggle {
+    position: relative;
+    width: 50px;
+    height: 28px;
+}
+
+.Toggle input {
+    opacity: 0; /* hides the default checkbox */
+    width: 0;
+    height: 0;
+}
+
+.Slider {
+    position: absolute;
+    inset: 0;
+    background-color: #444;
+    border-radius: 28px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.Slider::before {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 4px;
+    top: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+/* when toggled on */
+.Toggle input:checked + .Slider {
+    background: linear-gradient(to right, #7fc0db, #2a7a6c);
+}
+
+.Toggle input:checked + .Slider::before {
+    transform: translateX(22px); /* slides the circle to the right */
+}
+
+.Toggle-Field p {
+    margin-right: 600px;
+    opacity: 0.6;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400; /* regular */
+}
+
+.Toggle-Input-Group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.Number-Field {
+    width: 60px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: #262626;
+    color: white;
+    font-size: 16px;
+    text-align: center;
+}
+
+.Number-Field:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
