@@ -48,5 +48,11 @@ Route::get('/Order-page', function () {
 
 Route::get('/custom_upload', [ModelController::class, 'custom_upload'])->name('model.custom_upload');
 
+Route::post('/custom_upload_info', [ModelController::class, 'custom_upload_info'])->name('model.custom_upload.post');
+
+Route::get('/custom_upload_info', function () {
+    return view('custom_upload_info');
+});
+
 
 require __DIR__.'/auth.php';
