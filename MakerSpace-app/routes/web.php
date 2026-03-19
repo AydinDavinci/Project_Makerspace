@@ -36,6 +36,8 @@ Route::get('/product-view', function () {
 
 Route::post('/order-handeling', [Order_handeling::class, 'order'])->name('order-handeling');
 
+Route::post('/custom-order-handeling', [Order_handeling::class, 'custom_order'])->name('custom-order-handeling');
+
 Route::get('/Order_submitted_screen', function () {
     return view('Order_page');
 })->middleware(['auth', 'verified'])->name('order_submitted_screen');   
