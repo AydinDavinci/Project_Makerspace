@@ -24,8 +24,7 @@
             <p>drag and drop your model file here</p>
             <p>Available formats .stl .cad .gcode .3fm</p>
         </div>
-        </div>
-        <form action="{{ route('order-handeling') }}" method="POST">
+        </div> <form action="{{ route('model.custom_upload.post') }}" method="POST">
             @csrf
             <button type="submit" class="Upload-file-btn">Upload</button>
         </form>     
