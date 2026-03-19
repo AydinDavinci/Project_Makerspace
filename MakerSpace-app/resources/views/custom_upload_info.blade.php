@@ -18,20 +18,21 @@
         <input type="text" name="product_description" placeholder="Product Description"><br>
         
         <label for="image">Product Image:</label>
-        <input type="file" accept="png , jpg" name="product_image" placeholder="Product Image URL"><br>
-        
+        <div class="upload_img">
+        <input type="file" accept="png , jpg" name="product_image" placeholder="Product Image"><br>
+        </div>
         <label for="type_of_fillament" style="margin-left: 0px; margin-bottom: 10px; color: white;">Select a preferred fillament type <br></label>
         
-        <select style="margin-left: 0px; margin-top: 20px; width: 220px;" name="type_of_fillament" id="type_of_fillament">
-            <option value="pla">PLA</option>
-            <option value="abs">ABS</option>
-            <option value="petg">PETG</option>
+        <select style="margin-left: 0px; margin-top: 20px; width: 90%;" name="type_of_fillament" id="type_of_fillament">
+            <option class="fillament_type" value="pla">PLA</option>
+            <option class="fillament_type" value="abs">ABS</option>
+            <option class="fillament_type" value="petg">PETG</option>
         </select><br>
         <br>
         <label for="color-selecter" style="margin-left: 10px; margin-bottom: 10px; color: white;">Select a preferred color <br></label>
         <input class="color-selecter" type="color">
         </div>
-        <button class="order-btn" type="submit">Place custom order</button>x
+        <button class="order-btn" type="submit">Place custom order</button>
             </form>
         </div>
     </div>
