@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-    <form action="{{ route('order-handeling') }}" method="POST">
+    <form action="{{ route('model.custom_order.post') }}" method="POST">
         @csrf
         <label for="name">Product Name:</label>
         <input type="text" name="product_name" placeholder="Product Name"><br>
@@ -30,7 +30,16 @@
         </select><br>
         <br>
         <label for="color-selecter" style="margin-left: 10px; margin-bottom: 10px; color: white;">Select a preferred color <br></label>
-        <input class="color-selecter" type="color">
+        <select class="color_select" name="color">
+            <option value="red">red</option>
+            <option value="orange">orange</option>
+            <option value="yellow">yellow</option>
+            <option value="white">white</option>
+            <option value="green">green</option>
+            <option value="blue">blue</option>
+            <option value="black">black</option>
+            <option value="gray">gray</option>
+        </select>
         </div>
         <button class="order-btn" type="submit">Place custom order</button>
             </form>
