@@ -54,5 +54,9 @@ Route::get('/custom_upload_info', function () {
     return view('custom_upload_info');
 });
 
+Route::get('/home', function () {
+    return view('home');
+})->name('Home');
+
 
 require __DIR__.'/auth.php';

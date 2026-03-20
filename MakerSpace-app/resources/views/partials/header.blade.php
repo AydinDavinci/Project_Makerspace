@@ -26,7 +26,7 @@
 <div class="sub-header">
     <div class="sub-header__container">
         <div class="sub-header__container__title">
-            <h1>Catalog</h1>
+            <h1>{{ Route::currentRouteName() }}</h1>
         </div>
         <div>   
             <ul>
