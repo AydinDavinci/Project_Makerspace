@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&family=Nunito:wght@100..900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&family=Nunito:wght@100..900&display=swap'); */
 body {
   background-color: #070707;
 }
@@ -51,7 +51,7 @@ body {
 .Info-Field{
     font-size: 24px;
     color: white;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 400; /* regular */
 }
 
@@ -60,6 +60,9 @@ body {
     border-radius: 10px;
     padding: 10px 60px 10px 10px;
     opacity: 0.6;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400; /* regular */
 }
 
 .Save-Button {
@@ -72,7 +75,7 @@ body {
     cursor: pointer;
     margin-top: 15px;
     opacity: 0.8;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 400; /* regular */
 }
 
@@ -134,7 +137,7 @@ body {
 .Toggle-Field p {
     margin-right: 600px;
     opacity: 0.6;
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 400; /* regular */
 }
 

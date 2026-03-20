@@ -7,21 +7,25 @@
     <link rel="stylesheet" href="{{ asset('../css/settings.css') }}">
 </head>
 <body>
+    @include("partials.header")
     <!-- account details -->
     <div class="Box">
         <p class="Titel">Account</p>
         <div class="Wrap-Box">
             <div class="Info-Field">
                 <p>Email:</p>
-                <p class="Fill-in-Field">example Email</p>
+                <!-- <p class="Fill-in-Field">example Email</p> -->
+                <input class="Fill-in-Field" placeholder="example Email">
             </div>
             <div class="Info-Field">
                 <p>Da Vinci Number:</p>
-                <p class="Fill-in-Field">example Number</p>
+                <!-- <p class="Fill-in-Field">example Number</p> -->
+                <input class="Fill-in-Field" placeholder="example Number">
             </div>
             <div class="Info-Field">
                 <p>Account Name:</p>
-                <p class="Fill-in-Field">example Name</p>
+                <!-- <p class="Fill-in-Field">example Name</p> -->
+                <input class="Fill-in-Field" placeholder="example Name">
             </div>
             <div class="Info-Field">
                 <p>Phonenumber:</p>
@@ -53,7 +57,7 @@
             </div>
         </div>
         <div class="Toggle-Field">
-            <p>Dark ModeSend notification per sms</p>
+            <p>Send notification per sms</p>
             <label class="Toggle">
                 <input type="checkbox">
                 <span class="Slider"></span>
