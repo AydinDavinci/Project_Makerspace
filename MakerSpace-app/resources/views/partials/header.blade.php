@@ -8,7 +8,7 @@
 <header class="header">
     <div class="header__content">
         <div class="header__content-logo-container">
-            <img class="Logo" src="{{ asset('images/Logo-large.png') }}" alt="Logo" width="130" height="40">
+            <a href="{{ route('Home') }}"><img class="Logo" src="{{ asset('images/Logo-large.png') }}" alt="Logo" width="130" height="40"></a>
         </div>
          
         <div class="header__info">
@@ -26,12 +26,26 @@
 <div class="sub-header">
     <div class="sub-header__container">
         <div class="sub-header__container__title">
-            <h1>{{ Route::currentRouteName() }}</h1>
+            @php
+                $routeName = Route::currentRouteName();
+                $pageTitles = [
+                    'Home' => 'Home',
+                    'catalog.view' => 'Catalog',
+                    'product.view' => 'Product Details',
+                    'model.custom_upload' => 'Upload Model',
+                    'dashboard' => 'Dashboard',
+                    'order-page' => 'Order Details',
+                    'order_submitted_screen' => 'Order Submitted',
+                    'profile.edit' => 'Profile'
+                ];
+                $title = $pageTitles[$routeName] ?? ucfirst(str_replace(['.', '-', '_'], ' ', $routeName));
+            @endphp
+            <h1>{{ $title }}</h1>
         </div>
         <div>   
             <ul>
                 <a href=""><li>Dashboard</li></a>
-                <a href="{{ route('catalog.view') }}"><li><span>Catalog</span></li></a>
+                <a href="{{ route('catalog.view') }}"><li>Catalog</li></a>
                 <a href=""><li>Instellingen</li></a>
                 <a href=""><li>FAQ</li></a>
             </ul>
