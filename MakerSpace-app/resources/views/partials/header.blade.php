@@ -22,25 +22,11 @@
     
 
 </header>
-
+<!-- sub header -->
 <div class="sub-header">
     <div class="sub-header__container">
         <div class="sub-header__container__title">
-            @php
-                $routeName = Route::currentRouteName();
-                $pageTitles = [
-                    'Home' => 'Home',
-                    'catalog.view' => 'Catalog',
-                    'product.view' => 'Product Details',
-                    'model.custom_upload' => 'Upload Model',
-                    'dashboard' => 'Dashboard',
-                    'order-page' => 'Order Details',
-                    'order_submitted_screen' => 'Order Submitted',
-                    'profile.edit' => 'Profile'
-                ];
-                $title = $pageTitles[$routeName] ?? ucfirst(str_replace(['.', '-', '_'], ' ', $routeName));
-            @endphp
-            <h1>{{ $title }}</h1>
+            <h1>{{ Route::currentRouteName() }}</h1>
         </div>
         <div>   
             <ul>
