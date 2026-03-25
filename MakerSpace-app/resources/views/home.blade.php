@@ -18,7 +18,7 @@
                 </div>
             </div>
             <div class="home-infoblock">
-                <div class="home-infoblock__image">image</div>
+                <div class="home-infoblock__image"><img src="{{ asset('images/homepage/IMG_0833.jpg') }}" alt="home_image1"></div>
                 <div class="home-infoblock__text">
                     <div>
                         <h3>Welkom bij VinciLab!</h3>
@@ -33,9 +33,10 @@
                         Heb je geen eigen ontwerp, maar wil je toch een 3D print laten maken? Geen probleem! We hebben een uitgebreide catalogus met kant-en-klare ontwerpen waaruit je kunt kiezen. Of je nu een school project hebt of gewoon iets leuks wilt laten printen, bij VinciLab ben je aan het juiste adres!
                     </div>
                 </div>
-                <div class="home-infoblock__image">image</div>
+                <div class="home-infoblock__image"><img src="{{ asset('images/homepage/IMG_0815.jpg') }}" alt="home_image2"></div>
             </div>
             <div class="home-ending">
+                <div class="home-infoblock__image"><img src="{{ asset('images/homepage/IMG_0834.jpg') }}" alt="home_image1"></div>
                 <h2>Student bij DaVinci College Dordrecht?</h2>
                 <span>En wil je gebruik maken van onze 3D printers?</span>
                 <a href="{{ route('register') }}"><button class="button-primary">Vraag je account aan!</button></a>

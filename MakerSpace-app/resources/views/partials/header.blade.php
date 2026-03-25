@@ -25,8 +25,23 @@
 <!-- sub header -->
 <div class="sub-header">
     <div class="sub-header__container">
+        @php
+            $pageTitles = [
+                'Home'                   => 'Home',
+                'catalog.view'           => 'Catalog',
+                'product.view'           => 'Product',
+                'model.custom_upload'    => 'Upload',
+                'model.custom_upload.post' => 'Upload Details',
+                'order-page'             => 'Order',
+                'order-handeling' => 'Order Submitted',
+                'dashboard'              => 'Dashboard',
+                'profile.edit'           => 'Profile',
+                'login'                  => 'Login',
+            ];
+            $pageTitle = $pageTitles[Route::currentRouteName()] ?? '';
+        @endphp
         <div class="sub-header__container__title">
-            <h1>{{ Route::currentRouteName() }}</h1>
+            <h1>{{ $pageTitle }}</h1>
         </div>
         <div>   
             <ul>
