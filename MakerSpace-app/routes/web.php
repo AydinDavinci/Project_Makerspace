@@ -46,13 +46,18 @@ Route::get('/Order-page', function () {
 })->middleware(['auth', 'verified'])->name('order-page');
 
 
-Route::get('/custom_upload', [ModelController::class, 'custom_upload'])->name('model.custom_upload');
+Route::get('/custom_upload', [ModelController::class, 'custom_upload'])
+    ->name('model.custom_upload');
 
-Route::post('/custom_upload_info', [ModelController::class, 'custom_upload_info'])->name('model.custom_upload.post');
+Route::post('/custom_upload', [ModelController::class, 'upload_model'])
+    ->name('model.custom_upload.post');
 
-Route::get('/custom_upload_info', function () {
-    return view('custom_upload_info');
-});
+Route::get('/custom_upload_info', [ModelController::class, 'custom_upload_info'])
+    ->name('custom_upload_info');
+
+Route::post('/custom_upload_info', [Order_handeling::class, 'custom_order'])
+    ->name('model.custom_order.post');
+
 
 
 require __DIR__.'/auth.php';

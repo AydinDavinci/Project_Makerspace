@@ -31,7 +31,7 @@
     <form action="{{ route('order-handeling') }}" method="POST">
         @csrf
     <div class="rest">
-        <p style="font-size: xx-large; margin-top: 125px; margin-left: 10px; color: white;" class="description"><span>Product</span> Description</p>
+        <p style="font-size: xx-large; margin-top: 125px; margin-left: 10px; color: white;" class="description" name="description"><span>Product</span> Description</p>
         <p style="font-size: medium; margin-left: 10px; color: white;" class="price">Estimated print time: 2 hours</p>
 
         <input type="checkbox"class=advanced_settings_checkbox id="advanced_settings_checkbox" name="advanced_settings_checkbox">Advanced settings<br>
@@ -44,7 +44,16 @@
             </select><br>
         <br>
         <label for="color-selecter" style="margin-left: 10px; margin-bottom: 10px; color: white;">Select a preferred color <br></label>
-        <input class="color-selecter" type="color">
+            <select class="color_select" name="color">
+                <option value="red">red</option>
+                <option value="orange">orange</option>
+                <option value="yellow">yellow</option>
+                <option value="white">white</option>
+                <option value="green">green</option>
+                <option value="blue">blue</option>
+                <option value="black">black</option>
+                <option value="gray">gray</option>
+            </select>
         </div>
         <button style=" margin-top: 20px; margin-left: 10px;" class="order-btn">Order now</button>
         </form>
