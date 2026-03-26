@@ -32,6 +32,14 @@
                         <summary class="faq-question" style="color: white;">5. Is er spoedservice?</summary>
                         <p class="faq-answer" style="color: white;">Ja, als je bestelling spoed heeft kan je dat aangeven.</p>
                     </details>
+                    <details class="faq-item">
+                        <summary class="faq-question" style="color: white;">6. Kan ik de kleur kiezen?</summary>
+                        <p class="faq-answer" style="color: white;">Ja, je kan de kleur van je product kiezen.</p>
+                    </details>
+                    <details class="faq-item">
+                        <summary class="faq-question" style="color: white;">7. Welke formaten zijn beschikbaar?</summary>
+                        <p class="faq-answer" style="color: white;">Beschikbare formaten: .stl .cad .gcode .3mf</p>
+                    </details>
                 </div>
             </div>
         </div>
