@@ -59,5 +59,9 @@ Route::post('/custom_upload_info', [Order_handeling::class, 'custom_order'])
     ->name('model.custom_order.post');
 
 
+Route::get('/home', function () {
+    return view('home');
+})->name('Home');
+
 
 require __DIR__.'/auth.php';
