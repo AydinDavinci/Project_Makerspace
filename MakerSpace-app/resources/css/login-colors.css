@@ -60,7 +60,7 @@ body {
 .border-gray-300,
 .border-gray-700 {
     border-color: #3a3a3a;
-    background-color: #328F7F;
+    background-color: #1a1a1a;
     color: var(--text-color);
 }
 
@@ -98,5 +98,82 @@ input::placeholder {
 
 :checked + span {
     color: var(--text-color);
+}
+
+/* Primary Button */
+.bg-gray-800 {
+    background-color: var(--primary-color);
+}
+
+.hover\:bg-gray-700:hover {
+    background-color: #7bc4e4;
+}
+
+.text-white {
+    color: #121212;
+}
+
+/* Links */
+.underline.text-sm,
+a.underline {
+    color: var(--primary-color);
+}
+
+.hover\:text-gray-900:hover {
+    color: var(--primary-color);
+}
+
+/* Focus Ring */
+.focus\:ring-indigo-500 {
+    --tw-ring-color: var(--primary-color);
+}
+
+/* Error Text */
+.text-red-600,
+.text-red-400 {
+    color: #ff6b6b;
+}
+
+/* Remember Me Label */
+.inline-flex.items-center span {
+    color: var(--secondary-text-color);
+}
+
+/* Logo Container (if needed) */
+a[href="/"] {
+    background-color: transparent;
+}
+
+/* Focus Ring Offset */
+.focus\:ring-offset-2 {
+    --tw-ring-offset-color: var(--background-color);
+}
+
+.dark\:focus\:ring-offset-gray-800 {
+    --tw-ring-offset-color: var(--background-color);
+}
+
+/* Selection */
+::selection {
+    background-color: var(--primary-color);
+    color: #121212;
+}
+
+/* Scrollbar (optional - for dark theme) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--body-background-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--secondary-text-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-color);
 }
 
