@@ -54,6 +54,17 @@
                 <option value="black">black</option>
                 <option value="gray">gray</option>
             </select>
+
+        <input type="checkbox" class="advanced_settings_checkbox" id="advanced_settings_checkbox">
+        <label for="advanced_settings_checkbox" style="color: white;">wel of geen print supports</label>
+        
+        <input type="text" class="extra-settings"placeholder = "Add extra settings like print speed , temp etc">
+        
+        <select name="print selector" id="print-selector">
+            <option value="bambu">Bambu</option>
+            <option value="creality">Creality</option>
+            <option value="anycubic">Anycubic</option>
+        </select>   
         </div>
         <button style=" margin-top: 20px; margin-left: 10px;" class="order-btn">Order now</button>
         </form>
