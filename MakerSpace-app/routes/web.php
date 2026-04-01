@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\Order_handeling;
 use App\Http\Controllers\ModelController;
+use App\Http\Controllers\PageController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,7 +14,9 @@ use App\Http\Controllers\ModelController;
 
 Route::get('/', function () {
     return view('auth.login');
-})->name('login');
+});
+
+Route::post('/', [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'store']);
 
 Route::get('/catalog', [ItemController::class, 'index'])->name('catalog.view');
 Route::get('/item/{id}', [ItemController::class, 'show']);
@@ -62,6 +65,8 @@ Route::post('/custom_upload_info', [Order_handeling::class, 'custom_order'])
 Route::get('/home', function () {
     return view('home');
 })->name('Home');
+
+Route::get('/faq', [PageController::class, 'faq'])->name('faq');
 
 
 require __DIR__.'/auth.php';
