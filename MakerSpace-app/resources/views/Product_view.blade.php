@@ -11,70 +11,98 @@
 <body>
     @include('partials.header')
     
+    <section class="product-view"name="product-view">
+        <div class="Product">
 
-<div class="Product">
+            <h1 class="product-name">Test Print</h1>
+            
+            <div class="image-wrapper">
+                <p style="color: #858585;" class="creator">Created by: Test Creator</p>
+                <img style="width: 350px; height: 350px;" src="{{ asset('images/No_Image_Available.jpg') }}" alt="image-of-product">
+                
+                <div class="thumbnail-row">
+                    <img style="width: 50px; height: 50px;" src="{{ asset('images/No_Image_Available.jpg') }}" alt="image-of-product">
+                    <img style="width: 50px; height: 50px;" src="{{ asset('images/No_Image_Available.jpg') }}" alt="image-of-product">
+                    <img style="width: 50px; height: 50px;" src="{{ asset('images/No_Image_Available.jpg') }}" alt="image-of-product">
+                    <img style="width: 50px; height: 50px;" src="{{ asset('images/No_Image_Available.jpg') }}" alt="image-of-product">
+                    <img style="width: 50px; height: 50px;" src="{{ asset('images/No_Image_Available.jpg') }}" alt="image-of-product">        </div>
+            </div>
 
-    <h1 class="product-name">Test Print</h1>
-    
-    <div class="image-wrapper">
-        <p style="color: #858585;" class="creator">Created by: Test Creator</p>
-        <img style="width: 350px; height: 350px;" src="{{ asset('images/No_Image_Available.jpg') }}" alt="image-of-product">
-        
-        <div class="thumbnail-row">
-            <img style="width: 50px; height: 50px;" src="{{ asset('images/No_Image_Available.jpg') }}" alt="image-of-product">
-            <img style="width: 50px; height: 50px;" src="{{ asset('images/No_Image_Available.jpg') }}" alt="image-of-product">
-            <img style="width: 50px; height: 50px;" src="{{ asset('images/No_Image_Available.jpg') }}" alt="image-of-product">
-            <img style="width: 50px; height: 50px;" src="{{ asset('images/No_Image_Available.jpg') }}" alt="image-of-product">
-            <img style="width: 50px; height: 50px;" src="{{ asset('images/No_Image_Available.jpg') }}" alt="image-of-product">        </div>
-    </div>
+            <form action="{{ route('order-handeling') }}" method="POST">
+                @csrf
+            <div class="rest">
+                <p style="font-size: xx-large; margin-top: 125px; margin-left: 10px; color: white;" class="description" name="description"><span>Product</span> Description</p>
+                <p style="font-size: medium; margin-left: 10px; color: white;" class="price">Estimated print time: 2 hours</p>
 
-    <form action="{{ route('order-handeling') }}" method="POST">
-        @csrf
-    <div class="rest">
-        <p style="font-size: xx-large; margin-top: 125px; margin-left: 10px; color: white;" class="description" name="description"><span>Product</span> Description</p>
-        <p style="font-size: medium; margin-left: 10px; color: white;" class="price">Estimated print time: 2 hours</p>
+                <input type="checkbox"class=advanced_settings_checkbox id="advanced_settings_checkbox" name="advanced_settings_checkbox">Advanced settings<br>
+                <div style="display: none;" class="advanced_settings">
+                    
+                    <div class="type_of_fillament_div">
+                        <label class="type_of_fillament_label" for="type_of_fillament">Select a preferred fillament type <br>
+                        <select class="type_of_fillament_dropdown" name="type_of_fillament" id="type_of_fillament_dropdown">
+                            <option value="pla">PLA</option>
+                            <option value="abs">ABS</option>
+                            <option value="petg">PETG</option>
+                        </select><br>
+                        </label>
+                    </div>
 
-        <input type="checkbox"class=advanced_settings_checkbox id="advanced_settings_checkbox" name="advanced_settings_checkbox">Advanced settings<br>
-        <div style="display: none;" class="advanced_settings">
-        <label for="type_of_fillament" style="margin-left: 10px; margin-bottom: ; color: white;">Select a preferred fillament type <br></label>
-        <select style="margin-left: 10px; margin-top: 20px; width: 220px;" name="type_of_fillament" id="type_of_fillament">
-            <option value="pla">PLA</option>
-            <option value="abs">ABS</option>
-            <option value="petg">PETG</option>
-            </select><br>
-        <br>
-        <label for="color-selecter" style="margin-left: 10px; margin-bottom: 10px; color: white;">Select a preferred color <br></label>
-            <select class="color_select" name="color">
-                <option value="red">red</option>
-                <option value="orange">orange</option>
-                <option value="yellow">yellow</option>
-                <option value="white">white</option>
-                <option value="green">green</option>
-                <option value="blue">blue</option>
-                <option value="black">black</option>
-                <option value="gray">gray</option>
-            </select>
 
-        <input type="checkbox" class="advanced_settings_checkbox" id="advanced_settings_checkbox">
-        <label for="advanced_settings_checkbox" style="color: white;">wel of geen print supports</label>
-        
-        <input type="text" class="extra-settings"placeholder = "Add extra settings like print speed , temp etc">
-        
-        <select name="print selector" id="print-selector">
-            <option value="bambu">Bambu</option>
-            <option value="creality">Creality</option>
-            <option value="anycubic">Anycubic</option>
-        </select>   
+                    <div class="color_selector_div">
+                        <label class="color_selector_label" for="color-selector">Select a preferred color <br>
+                            <select class="color_selector_dropdown"style="margin-left: 10px; margin-top: 20px; width: 220px; height: 45px" name="color" >
+                                <option value="red">RED</option>
+                                <option value="orange">ORANGE</option>
+                                <option value="yellow">YELLOW</option>
+                                <option value="white">WHITE</option>
+                                <option value="green">GREEN</option>
+                                <option value="blue">BLUE</option>
+                                <option value="black">BLACK</option>
+                                <option value="gray">GRAY</option>
+                            </select>
+                        <br>        
+                        </label>
+                    </div>
+
+
+                    <div class="print-supports_div">
+                        <label class="print_support_label" for="print_support_label">Disable print supports 
+                        <input class="print_support_checkbox" type="checkbox" id="print_support_checkbox">
+                        </label>
+                    </div>
+
+                    <div class="extra_settings_div">
+                        <label class="extra-settings_label" for="extra-settings_input">Add extra settings
+                        <input class="extra-settings_input" type="text" placeholder = "Add extra settings like print speed , temp etc">
+                        </label>
+                    </div>
+
+
+                    <div class="print_selector_div">
+                        <label class="print_selector_label" for="print_selector_dropdown">Select a preferred printer<br>
+                        <select class="print_selector_dropdown" style="margin-left: 10px; margin-top: 20px; width: 220px;height: 45px" name="print selector" id="print_selector_dropdown">
+                            <option value="bambu">Bambu</option>
+                            <option value="creality">Creality</option>
+                            <option value="anycubic">Anycubic</option>
+                        </select>   
+                        </label>
+                    </div>
+
+                </div>
+
+                <button style=" margin-top: 20px; margin-left: 10px;" class="order-btn">Order now</button>
+                </form>
+
+            </div>
         </div>
-        <button style=" margin-top: 20px; margin-left: 10px;" class="order-btn">Order now</button>
-        </form>
-    </div>
-</div>
-
+    </section>
 
 {{-- <img style="width: 250px; height: 250px;;" src="{{ asset('images/No_Image_Available.jpg') }}" alt="image-of-product"> --}}
   
 
+<footer>
+    @include('partials.footer') 
+</footer>
 </body>
 </html>
  

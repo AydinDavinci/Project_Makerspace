@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Order;
+use App\Models\order;
 
 class Order_handeling extends Controller
 {   
@@ -15,8 +15,6 @@ class Order_handeling extends Controller
       
 
         $request ->validate([
-            'user_name' => 'required|string|max:255',
-            'user_email' => 'required|email',
             'product_name' => 'required|string|max:255',
             'product_description' => 'nullable|string|max:2000',
             'type_of_fillament' => 'required|string',
@@ -46,8 +44,6 @@ class Order_handeling extends Controller
         $item_name = $request->input('product_name');
         
         $request ->validate([
-            'user_name' => 'required|string|max:255',
-            'user_email' => 'required|email',
             'product_name' => 'required|string|max:255',
             'product_description' => 'nullable|string|max:2000',
             'type_of_fillament' => 'required|string',

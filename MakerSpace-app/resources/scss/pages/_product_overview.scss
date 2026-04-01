@@ -4,18 +4,59 @@ body {
     font-family: var(--h1-font);
 }
 
+// standard p styling for all paragraphs on the product overview page
 p {
     font-family: var(--p-font);
     font-size: var(--p-size);
     color: var(--p-color);
 }
 
+// basic input styling for all input fields and select dropdowns
+input {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--p-detail-font);
+    font-size: var(--p-detail-size);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+}
 
+select {
+    margin-left: 10px; 
+    margin-top: 20px; 
+    width: 220px; 
+    height: 45px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--p-detail-font);
+    font-size: var(--p-detail-size);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    background-color: #292929;
+    border: 1px solid rgba(128, 128, 128, 0.303);
+    cursor: pointer;
+}
+
+label{
+    color: var(--text-color);
+    font-family: var(--p-detail-font);
+    margin-left: 10px; 
+    margin-bottom: 10px;
+}
+//product view styling
 .Product{
     margin-top: 0px;
     background-color: var(--background-color);
     width: 900px;
-    height: 550px;
+    height: 100%;
     display: grid;
     grid-template-areas: "name name" "image rest";
     grid-template-rows: auto 1fr;
@@ -23,22 +64,26 @@ p {
     margin-left: auto ;
     margin-right: auto;
     border-radius: var(--regular-border-radius);
+
+    img{
+        margin-left: 20px;
+        grid-area: image;
+        width: 300px;
+        height: 300px;
+        border-radius: 10px;
+    }   
+    
 }
 
-.Product img{
-    margin-left: 20px;
-    grid-area: image;
-    width: 300px;
-    height: 300px;
-    border-radius: 10px;
-}
-
+// styling for the product name and creator name on the product overview page
 .product-name{
     margin-left: 20px;
     grid-area: name;
     color: var(--text-color);
     font-size: 24px;
     margin-bottom: 0px;
+
+    
 }
 
 .creator{
@@ -47,6 +92,136 @@ p {
     margin-left: 20px;
     color: var(--text-color);
     margin-bottom: 5px;
+}
+
+// all styling for the advanced settings checkbox and label
+.advanced_settings_checkbox{
+    margin-left: 10px;
+    margin-top: 20px;
+
+    &.advanced_settings_checkbox:hover {
+        cursor: pointer;
+    }
+}
+
+// all styling for the fillament selector 
+.type_of_fillament_div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+
+    .type_of_fillament_dropdown{
+        
+        background-color: var(--background-color);
+        color: var(--text-color);
+        font-family: var(--p-detail-font);
+        font-size: var(--p-detail-size);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+
+    &:hover {
+        border: 2px dashed white;
+    }
+
+}
+}
+
+// all styling of the color selector
+.color_selector_div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+
+    .color_selector_dropdown{
+        background-color: var(--background-color);
+        color: var(--text-color);
+        font-family: var(--p-detail-font);
+        font-size: var(--p-detail-size);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+            border: 2px dashed white;
+        }
+    }
+}
+
+// all styling for the print supports checkbox and label
+.print-supports_div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+
+    .print-supports_checkbox{
+        width: 20px;
+        height: 20px;
+        border-radius: 5px;
+        border: none;
+        background-color: #292929;
+        border: 1px solid rgba(128, 128, 128, 0.303);
+        cursor: pointer;
+    }
+}
+
+// all styling for the extra settings input field 
+.extra_settings_div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    height: 50px;
+    margin-bottom: 10px;
+
+    .extra_settings_input{
+        background-color: var(--background-color);
+        color: var(--text-color);
+        font-family: var(--p-detail-font);
+        font-size: var(--p-detail-size);
+        border: none;
+        border-radius: 5px;
+        width: 400px;
+        height: 100%;   
+    }
+}
+
+
+.print_selector_div{
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--p-detail-font);
+    font-size: var(--p-detail-size);
+    border: none;
+    border-radius: 5px;
+    .print_selector_div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    }
+    .print_selector_dropdown{
+        background-color: var(--background-color);
+        color: var(--text-color);
+        font-family: var(--p-detail-font);
+        font-size: var(--p-detail-size);
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        
+
+        &:hover {
+            border: 2px dashed white;
+        }
+    }
+
+    .print_selector_label{
+        color: var(--text-color);
+        font-size: larger;
+    }
 }
 
 .order-btn {
@@ -63,18 +238,6 @@ p {
     transition: background 0.4s ease, color 0.4s ease;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 15px;
-}
-
-#type_of_fillament{
-    background-color: var(--background-color);
-    color: var(--text-color);
-    font-family: var(--p-detail-font);
-    font-size: var(--p-detail-size);
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-
 }
 
 .order-btn::after {
@@ -98,18 +261,12 @@ p {
     transform: scale(1);
 }
 
-.advanced_settings_checkbox{
-    margin-left: 10px;
-    margin-top: 20px;
-}
 
-.advanced_settings_checkbox:hover {
-    cursor: pointer;
-}
-
-
-.color-selecter{
-    margin-left: 10px;
-    width: 250px;
-    border: none;
+footer{
+    position: static;
+    margin-top: 35px;
+    text-align: center;
+    font-family: var(--p-detail-font);
+    font-size: var(--p-detail-size);
+    color: var(--p-detail-color);
 }
