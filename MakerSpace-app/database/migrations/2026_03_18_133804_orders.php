@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('product_description');
             $table->string('type_of_fillament');
             $table->string('color');
+            $table->string('prefered_printer');
+            $table->string('support_type')->nullable();
+            $table->integer('infill_density')->nullable();
             $table->string('status');
             $table->timestamps();
         });
