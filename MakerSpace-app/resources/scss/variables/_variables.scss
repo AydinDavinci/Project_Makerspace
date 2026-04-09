@@ -6,8 +6,12 @@
     --body-background-color: #070707;
     --text-color: #ffffff;
     --secondary-text-color: #858585;
+    --secondary-gray-color: #313131;
+    --container-background-color: #1A1A1A;
+    
     --hover-color: #1A1A1A;
     --main-gradient: linear-gradient(104deg, rgba(78, 173, 217, 1) 23%, rgba(50, 143, 127, 1) 60%);
+    --main-gradient-mirrored: linear-gradient(256deg, rgba(78, 173, 217, 1) 23%, rgba(50, 143, 127, 1) 60%);
 }
 :root{
     --h1-font: 'Geologica', sans-serif;
@@ -26,7 +30,10 @@
     --p-detail-size: 14px;
     --p-detail-color: var(--secondary-text-color);
 }
+
+
 :root{
+    --regular-container-padding: 20px;
     --regular-container-padding-top: 20px;
     --regular-container-padding-bottom: 20px;
     --regular-container-padding-left: 20px;
@@ -36,5 +43,6 @@
 :root
 {
     --reglar-border-radius: 10px;
+    --small-borrder-radius: 5px;
 }
 

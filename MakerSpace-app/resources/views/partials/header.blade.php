@@ -37,6 +37,7 @@
                 'dashboard'              => 'Dashboard',
                 'profile.edit'           => 'Profile',
                 'login'                  => 'Login',
+                'Dashboard Student'      => 'Dashboard Student',
             ];
             $pageTitle = $pageTitles[Route::currentRouteName()] ?? '';
         @endphp
@@ -45,14 +46,12 @@
         </div>
         <div>   
             <ul>
-                <a href=""><li>Dashboard</li></a>
+                <a href="{{ route('Dashboard Student') }}"><li>Dashboard</li></a>
                 <a href="{{ route('catalog.view') }}"><li>Catalog</li></a>
                 <a href=""><li>Instellingen</li></a>
                 <a href=""><li>FAQ</li></a>
             </ul>
         </div>
-
     </div>
-
 </div>
 
