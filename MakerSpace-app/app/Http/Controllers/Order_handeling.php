@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Order;
+use App\Models\order;
 
 class Order_handeling extends Controller
 {   
@@ -15,12 +15,14 @@ class Order_handeling extends Controller
       
 
         $request ->validate([
-            'user_name' => 'required|string|max:255',
-            'user_email' => 'required|email',
             'product_name' => 'required|string|max:255',
             'product_description' => 'nullable|string|max:2000',
             'type_of_fillament' => 'required|string',
             'color' => 'nullable|string|max:50',
+            'prefered_printer' => 'nullable|string|max:100',
+            'support_type' => 'nullable|string|max:100',
+            'infill_density' => 'nullable|integer|min:1|max:30'
+
         ]);
 
         $order = new Order();
@@ -34,6 +36,14 @@ class Order_handeling extends Controller
         $order-> product_description = $request->input('product_description')??'TEMP';
         $order-> type_of_fillament = $prefered_fillament ??"TEMP";
         $order-> color = $request->input('color');
+        $order-> prefered_printer = $request->input('prefered_printer')?? 'No preference';
+        if($request->has('advanced_settings_checkbox')){
+            $order-> support_type = $request->input('support_type')?? 'No preferred support';
+            $order-> infill_density = $request->input('infill_density')?? 15;
+        } else {
+            $order-> support_type = 'No preferred support';
+            $order-> infill_density = 15;
+        }
         $order-> status = 'pending';
         $order->save();
 
@@ -46,8 +56,6 @@ class Order_handeling extends Controller
         $item_name = $request->input('product_name');
         
         $request ->validate([
-            'user_name' => 'required|string|max:255',
-            'user_email' => 'required|email',
             'product_name' => 'required|string|max:255',
             'product_description' => 'nullable|string|max:2000',
             'type_of_fillament' => 'required|string',

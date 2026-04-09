@@ -27,5 +27,4 @@ class ModelController extends Controller
         \Log::info('Custom upload info function called');
         return view('custom_upload_info');
     }
-
 }

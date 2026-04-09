@@ -33,18 +33,30 @@
             <div class="main-section__overview">
                 <div class="item">
                     <div class="item__info">
-                        <div class="item__image">200x150</div>
-                        
-                        <div class="item__title">Title</div>
-                        <div class="item__creator">Creator</div>
-                        <div class="item__details">
-                            <div class="item__details-date">dd-mm-yyyy</div>
-                            <div><a href="{{ route('product.view') }}" class="item__details-button"><button>Details</button></a></div>
-                            {{-- <div class="item__details-button"><button>Details</button></div> --}}
+
+                        @foreach ($items as $item)
+                        <div class="catalog__card">
+                            <div class="item__image">
+                                <img style="width: 200px; height: 150px;" src="{{ asset('images/' . $item->item_image) }}" alt="image-of-product">
+                            </div>
+
+                            <div class="item__title">{{ $item->item_name }}</div>
+
+                            <div class="item__details">{{ $item->item_details }}</div>
+
+                            <div class="item__details">
+                                <div class="item__details-date">{{ $item->item_date }}</div>
+                                <div>
+                                    <a href="{{ route('product.view', ['id' => $item->id]) }}" class="item__details-button">
+                                        <button>Details</button>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
+                        @endforeach
                     </div>
                 </div>
-
+                
             </div>
         </div>
     </section>
