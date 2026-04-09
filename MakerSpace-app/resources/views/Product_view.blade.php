@@ -14,13 +14,13 @@
     <section class="product-view"name="product-view">
         <div class="Product">
 
-            <h1 class="product-name">Test Print</h1>
+            <h1 class="product-name">{{ $items->item_name }}</h1>
             
             <div class="image-wrapper">
-                <p style="color: #858585;" class="creator">Created by: Test Creator</p>
+                <p style="color: #858585;" class="creator">Created by: {{ $items->item_creator }}</p>
                 <img style="width: 350px; height: 350px;" src="{{ asset('images/No_Image_Available.jpg') }}" alt="image-of-product">
-                
-                <div class="thumbnail-row">
+                    
+                    <div class="thumbnail-row">
                     <img style="width: 50px; height: 50px;" src="{{ asset('images/No_Image_Available.jpg') }}" alt="image-of-product">
                     <img style="width: 50px; height: 50px;" src="{{ asset('images/No_Image_Available.jpg') }}" alt="image-of-product">
                     <img style="width: 50px; height: 50px;" src="{{ asset('images/No_Image_Available.jpg') }}" alt="image-of-product">
@@ -31,9 +31,9 @@
             <form action="{{ route('order-handeling') }}" method="POST">
                 @csrf
             <div class="rest">
-                <p style="font-size: xx-large; margin-top: 125px; margin-left: 10px; color: white;" class="description" name="description"><span>Product</span> Description</p>
-                <p style="font-size: medium; margin-left: 10px; color: white;" class="price">Estimated print time: 2 hours</p>
-
+                <p style="font-size: xx-large; margin-top: 125px; color: white;" class="description" name="description"><span>Description</span><p>{{ $items->item_details }}</p>
+                <p style="font-size: medium; color: white;" class="print_time">Estimated print time: {{ $items->estemated_print_time  }}</p>
+                <p class="disclaimer">Disclaimer: print time varies with settings</p>
                 <input type="checkbox"class=advanced_settings_checkbox id="advanced_settings_checkbox" name="advanced_settings_checkbox">Advanced settings<br>
                 <div style="display: none;" class="settings_block advanced_settings">
                     <div class="settings_block type_of_fillament_div">

@@ -30,9 +30,9 @@ Route::middleware('auth')->group(function () {
 });
 
 
-Route::get('/product-view', function () {
-    return view('Product_view');
-})->name('product.view');
+
+Route::get('/product-view/{id}', [ItemController::class, 'show'])->name('product.view');
+
 
 Route::post('/order-handeling', [Order_handeling::class, 'order'])->name('order-handeling');
 

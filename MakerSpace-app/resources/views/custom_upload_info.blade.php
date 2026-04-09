@@ -68,8 +68,10 @@
                                         <option value="bambu">TREE</option>
                                         <option value="creality">ORGANIC</option>
                                         <option value="anycubic">REGULAR</option>
+                                        <option value="none">NONE</option>
                                     </select> 
-                                <p>Disable print supports</p>
+
+                                    <p style="Color: red; width: 100%;" class="support_warning" id="support_warning"></p>
                                 <input class="print_support_checkbox" type="checkbox" id="print_support_checkbox">
                             </div>
                         </div>

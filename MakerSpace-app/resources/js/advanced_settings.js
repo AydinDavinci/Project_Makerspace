@@ -11,6 +11,10 @@ const output = document.getElementById("rangeValue");
 const supportDropdown = document.getElementById('print_support_dropdown');
 const supportWarning = document.getElementById('support_warning');
 
+
+
+
+
 supportDropdown.addEventListener('change', function() {
     if (this.value === 'none') {
         supportWarning.innerHTML = "<strong>Warning:</strong> Disabling supports may lead to print failure for complex models.";

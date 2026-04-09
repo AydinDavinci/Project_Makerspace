@@ -101,6 +101,12 @@ label{
     margin-bottom: 5px;
 }
 
+.disclaimer{
+    font-family: var(--p-detail-font);
+    font-size: var(--p-detail-size);
+    color: var(--secondary-text-color);
+}
+
 // all styling for the advanced settings checkbox and label
 .advanced_settings_checkbox{
     margin-left: 10px;
