@@ -1,49 +1,35 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product View</title>
     @vite(['resources/scss/app.scss', 'resources/js/app.js' , 'resources/js/advanced_settings.js'])
+    <title>Document</title>
 
-
+    @include("partials.header")
 </head>
 <body>
-    @include('partials.header')
-    
-    <section class="product-view"name="product-view">
-        <div class="Product">
-
-            <h1 class="product-name">{{ $items->item_name }}</h1>
-            
-            <div class="image-wrapper">
-                <p style="color: #858585;" class="creator">Created by: {{ $items->item_creator }}</p>
-                <img style="width: 350px; height: 350px;" src="{{ asset('images/No_Image_Available.jpg') }}" alt="image-of-product">
-                    
-                    <div class="thumbnail-row">
-                    <img style="width: 50px; height: 50px;" src="{{ asset('images/No_Image_Available.jpg') }}" alt="image-of-product">
-                    <img style="width: 50px; height: 50px;" src="{{ asset('images/No_Image_Available.jpg') }}" alt="image-of-product">
-                    <img style="width: 50px; height: 50px;" src="{{ asset('images/No_Image_Available.jpg') }}" alt="image-of-product">
-                    <img style="width: 50px; height: 50px;" src="{{ asset('images/No_Image_Available.jpg') }}" alt="image-of-product">
-                    <img style="width: 50px; height: 50px;" src="{{ asset('images/No_Image_Available.jpg') }}" alt="image-of-product">        </div>
-            </div>
-
-            <form action="{{ route('order-handeling') }}" method="POST">
-                @csrf
-            <div class="rest">
-                <p style="font-size: xx-large; margin-top: 125px; color: white;" class="description" name="description"><span>Description</span><p>{{ $items->item_details }}</p>
-                <p style="font-size: medium; color: white;" class="print_time">Estimated print time: {{ $items->estemated_print_time  }}</p>
-                <p class="disclaimer">Disclaimer: print time varies with settings</p>
-                <input type="checkbox"class=advanced_settings_checkbox id="advanced_settings_checkbox" name="advanced_settings_checkbox">Advanced settings<br>
+    <div class="container">
+    <form action="{{ route('model.custom_order.post') }}" method="POST">
+        @csrf
+        <label for="name">Product Name:</label>
+        <input type="text" name="product_name" placeholder="Product Name"><br>
+        
+        <label for="description">Product Description:</label>
+        <input type="text" name="product_description" placeholder="Product Description"><br>
+        
+        <label for="image">Product Image:</label>
+        <div class="upload_img">
+        <input type="file" accept="png , jpg" name="product_image" placeholder="Product Image"><br>
+        </div>
+        <input type="checkbox"class=advanced_settings_checkbox id="advanced_settings_checkbox" name="advanced_settings_checkbox">Advanced settings<br>
                 <div style="display: none;" class="settings_block advanced_settings">
                     <div class="settings_block type_of_fillament_div">
-                        <label class="type_of_fillament_label" for="type_of_fillament">Select a preferred fillament type <br></label>
-                            <select class="type_of_fillament_dropdown" name="type_of_fillament" id="type_of_fillament_dropdown">
-                                <option value="pla">PLA</option>
-                                <option value="abs">ABS</option>
-                                <option value="petg">PETG</option>
-                            </select><br>   
-                        
+                    <label class="type_of_fillament_label" for="type_of_fillament">Select a preferred fillament type <br></label>
+                        <select class="type_of_fillament_dropdown" name="type_of_fillament" id="type_of_fillament_dropdown">
+                            <option value="pla">PLA</option>
+                            <option value="abs">ABS</option>
+                            <option value="petg">PETG</option>
+                        </select><br>   
                     </div>
 
 
@@ -86,7 +72,8 @@
                                     </select> 
 
                                     <p style="Color: red; width: 100%;" class="support_warning" id="support_warning"></p>
-                                </div>
+                                <input class="print_support_checkbox" type="checkbox" id="print_support_checkbox">
+                            </div>
                         </div>
 
                     
@@ -98,30 +85,13 @@
                                     <span id="rangeValue">0%</span>
                             </div>
                         </div>
-
-
-                    <div class="extra_settings_div">
-                        <label class="extra-settings_label" for="extra-settings_input">Add extra settings</label>
-                        <input class="extra-settings_input" type="text" placeholder = "Add extra settings like print speed , temp etc"> 
-                    </div>
-
-                    
-                    
-                </div>
-
-                <button style=" margin-top: 20px; margin-left: 10px;" class="order-btn">Order now</button>
-                </form>
-
-            </div>
         </div>
-    </section>
+        <button class="order-btn" type="submit">Place custom order</button>
+            </form>
+        </div>
+    </div>
 
-{{-- <img style="width: 250px; height: 250px;;" src="{{ asset('images/No_Image_Available.jpg') }}" alt="image-of-product"> --}}
-  
+        
 
-<footer>
-    @include('partials.footer') 
-</footer>
 </body>
 </html>
- 

@@ -11,5 +11,13 @@ class PageController extends Controller
         return view('catalog'); // refers to resources/views/about.blade.php
     }
 
-    // You can add more page methods here later
+    public function settings()
+    {
+        return view('settings');
+    }
+
+    public function faq()
+    {
+        return view('faq');
+    }
 }
