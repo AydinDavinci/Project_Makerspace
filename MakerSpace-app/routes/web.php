@@ -22,6 +22,10 @@ Route::get('/catalog', [ItemController::class, 'index'])->name('catalog.view');
 Route::get('/item/{id}', [ItemController::class, 'show']);
 
 Route::get('/dashboard', function () {
+    $userRole = auth()->user()->role ?? 'guest';
+    if ($userRole === 'admin') {
+        return view('dashboard_admin_test');
+    }
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -32,6 +36,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
+    Route::resource('users', \App\Http\Controllers\Admin\UserController::class)->only(['index', 'create', 'store']);
+});
 
 
 Route::get('/product-view/{id}', [ItemController::class, 'show'])->name('product.view');

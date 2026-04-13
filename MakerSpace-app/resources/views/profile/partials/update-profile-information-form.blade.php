@@ -28,6 +28,13 @@
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
             <x-input-error class="mt-2" :messages="$errors->get('email')" />
 
+        </div>
+
+        <div>
+            <x-input-label for="role" value="Role" />
+            <input type="text" class="mt-1 block w-full border-gray-300 dark:border-gray-500 dark:bg-gray-800 dark:text-white rounded-md shadow-sm" value="{{ $user->role }}" readonly />
+        </div>
+
             @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
                 <div>
                     <p class="text-sm mt-2 text-gray-800 dark:text-gray-200">
