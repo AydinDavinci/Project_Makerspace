@@ -46,7 +46,7 @@
             @endif
 
             <!-- register link -->
-            <span class="text-sm text-gray-600 dark:text-gray-400">New user? Create an account</span><a class="text-sm hover:text-gray-900 dark:hover:text-gray-100 underline rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('register') }}">here.</a>
+            <a class="text-sm hover:text-gray-900 dark:hover:text-gray-100 underline rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('register') }}">New user? Create an account.</a>
         </div>
     </form>
 </x-guest-layout>
