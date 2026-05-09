@@ -1,6 +1,7 @@
 <x-guest-layout>
+    @vite(['resources/scss/app.scss', 'resources/js/app.js' , 'resources/js/custom_upload.js'])
     <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to create a new one.') }}
     </div>
 
     <!-- Session Status -->
@@ -10,9 +11,11 @@
         @csrf
 
         <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+        <div class="input-container-login-forms">
+            
+            <x-text-input id="input" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
+            <x-input-label for="input" :value="__('Email')" />
+            <span class="underline"></span>
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 

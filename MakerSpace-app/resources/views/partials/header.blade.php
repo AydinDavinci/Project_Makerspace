@@ -20,7 +20,7 @@
                  <div class="dropdown-content">
                         <a class="profile" href="{{ route('profile.edit') }}">Profile</a>
                         <a class="logout" href="{{ route('logout') }}">Logout</a>
-                        <a class="settings" href="{{ route('settings') }}">settings</a>
+                        {{-- <a class="settings" href="{{ route('settings') }}">settings</a> --}}
                         
                     </div>
                 </div>
