@@ -42,10 +42,18 @@
 
 // Input styling    
 .input-container-login-forms{
+    appearance: none;
+    
     border-radius:9px;
     position: relative;
     width: 100%;
     margin: 50px auto;
+
+    border: none;               
+    outline: none;              
+    background: transparent;    
+    box-shadow: none;
+
 }
 
 .input-container-login-forms input{
@@ -55,7 +63,7 @@
     border-bottom: 2px solid #ccc;
     padding:5px 0;
     border-radius: 0px;
-    font-size: 10px;
+    font-size: var(--p-size);   
     background: transparent;
     outline: none;
 }
