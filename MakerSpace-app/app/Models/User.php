@@ -68,4 +68,10 @@ class User extends Authenticatable
     {
         return $this->role === 'user';
     }
+
+    public function getAvatarUrlAttribute()
+{
+      return 'https://api.dicebear.com/9.x/glass/svg?seed=' . urlencode($this->name);
+}
+    
 }

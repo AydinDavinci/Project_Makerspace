@@ -6,6 +6,7 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\Order_handeling;
 use App\Http\Controllers\ModelController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\Admin\userController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -77,11 +78,20 @@ Route::post('/custom_upload_info', [Order_handeling::class, 'custom_order'])
     ->name('model.custom_order.post');
 
 
+Route::get('/settings', function () {
+    $user = auth()->user();
+    $orders = app(Order_handeling::class)->show()->getData()['order'] ?? collect();
+
+    return view('settings_page', compact('user', 'orders'));
+})->middleware(['auth', 'verified'])->name('settings');
+
 Route::get('/home', function () {
     return view('home');
-})->name('Home');
+})->name('Home');   
 
 Route::get('/faq', [PageController::class, 'faq'])->name('faq');
+
+
 
 
 require __DIR__.'/auth.php';

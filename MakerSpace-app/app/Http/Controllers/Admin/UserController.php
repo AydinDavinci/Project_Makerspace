@@ -40,5 +40,17 @@ class UserController extends Controller
 
         return redirect()->route('admin.users.index')->with('status', 'user-created');
     }
+
+    public function show()
+    {   
+        $id = auth()->id();
+        if ($id !== auth()->id()) {
+            abort(403);
+        }
+        
+        $user = User::findOrFail($id);
+
+        return view('settings_page', compact('user'));
+    }
 }
 

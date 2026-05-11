@@ -98,6 +98,7 @@ class Order_handeling extends Controller
 
     public function show(){
         $orders = auth()->user()->orders()->get();
+        view('settings_page', ['order' => $orders, 'user' => auth()->user()]);
         return view('dashboard', ['order' => $orders, 'user' => auth()->user()]);
     }
 }

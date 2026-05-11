@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite(['resources/scss/app.scss', 'resources/js/app.js' , 'resources/js/advanced_settings.js'])
-    <title>Document</title>
+    <title>Custom Upload Info | VinciLab</title>
 
     @include("partials.header")
 </head>
