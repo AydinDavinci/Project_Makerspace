@@ -65,15 +65,22 @@ body {
 }
 
 /* Input Focus States */
-.focus\:border-indigo-500,
+/* .focus\:border-indigo-500,
 .focus\:ring-indigo-500 {
     border-color: var(--primary-color);
     --tw-ring-color: var(--primary-color);
+} */
+
+
+input:focus {
+    border-color: transparent !important;
+    box-shadow: none !important;
+    outline: none !important;
 }
 
 /* Input Focus - Dark Mode */
 .dark\:focus\:border-indigo-600 {
-    border-color: var(--primary-color);
+    border-color:none !important;
 }
 
 .dark\:focus\:ring-indigo-600 {
@@ -177,3 +184,20 @@ a[href="/"] {
     background: var(--primary-color);
 }
 
+input:focus {
+    border-color: transparent !important;
+    outline: none !important;
+
+    /* Tailwind ring uitschakelen */
+    --tw-ring-color: transparent !important;
+    --tw-ring-shadow: 0 0 #0000 !important;
+    box-shadow: none !important;
+}
+
+.focus\:ring-indigo-500 {
+    --tw-ring-color: transparent !important;
+}
+
+.focus\:border-indigo-500 {
+    border-color: transparent !important;
+}

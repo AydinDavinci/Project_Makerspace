@@ -18,15 +18,17 @@ Route::get('/', function () {
 
 Route::post('/', [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'store']);
 
-Route::get('/catalog', [ItemController::class, 'index'])->name('catalog.view');
-Route::get('/item/{id}', [ItemController::class, 'show']);
+Route::get('/catalog', [ItemController::class, 'index'])->middleware(['auth', 'verified'])->name('catalog.view');
+
+Route::get('/item/{id}', [ItemController::class, 'show'])->middleware(['auth', 'verified'])->name('item.view');
 
 Route::get('/dashboard', function () {
     $userRole = auth()->user()->role ?? 'guest';
     if ($userRole === 'admin') {
         return view('dashboard_admin_test');
     }
-    return view('dashboard');
+    $orders = \App\Models\order::where('user_email', auth()->user()->email)->get();
+    return view('dashboard', ['order' => $orders]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
@@ -43,6 +45,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
 
 Route::get('/product-view/{id}', [ItemController::class, 'show'])->name('product.view');
 
+Route::get('/dashboard', [Order_handeling::class, 'show'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::post('/order-handeling', [Order_handeling::class, 'order'])->name('order-handeling');
 
@@ -53,19 +56,24 @@ Route::get('/Order_submitted_screen', function () {
 
 Route::get('/Order-page', function () {
     return view('Order_page');
+
 })->middleware(['auth', 'verified'])->name('order-page');
 
 
 Route::get('/custom_upload', [ModelController::class, 'custom_upload'])
+    ->middleware(['auth', 'verified'])
     ->name('model.custom_upload');
 
 Route::post('/custom_upload', [ModelController::class, 'upload_model'])
+    ->middleware(['auth', 'verified'])
     ->name('model.custom_upload.post');
 
 Route::get('/custom_upload_info', [ModelController::class, 'custom_upload_info'])
+    ->middleware(['auth', 'verified'])
     ->name('custom_upload_info');
 
 Route::post('/custom_upload_info', [Order_handeling::class, 'custom_order'])
+    ->middleware(['auth', 'verified'])
     ->name('model.custom_order.post');
 
 

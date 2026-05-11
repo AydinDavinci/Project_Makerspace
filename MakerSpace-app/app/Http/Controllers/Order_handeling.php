@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\order;
+use App\Models\User;
 
 class Order_handeling extends Controller
 {   
@@ -26,9 +27,9 @@ class Order_handeling extends Controller
         ]);
 
         $order = new Order();
-
-        $order-> user_name = $request->input('user_name')?? 'TEMP';
-        $order-> user_email = $request->input('user_email')?? 'TEMP';
+        $order->user_id = auth()->id();
+        $order-> user_name = auth()->user()->name ?? 'TEMP';
+        $order-> user_email = auth()->user()->email ?? 'TEMP';
         $order-> product_name = $item_name = $request->input('product_name')??'TEMP';
         
         $order->product_file = session('uploaded_model', 'TEMP_FILE')?? 'No file found for already existing order';
@@ -46,6 +47,7 @@ class Order_handeling extends Controller
         }
         $order-> status = 'pending';
         $order->save();
+        auth()->user()->increment('total_prints');
 
         return view('Order_page', ['prefered_fillament' => $prefered_fillament, 'item_name' => $item_name]);
     }
@@ -64,8 +66,9 @@ class Order_handeling extends Controller
 
 
         $order = new Order();
-        $order-> user_name = $request->input('user_name')?? 'TEMP';
-        $order-> user_email = $request->input('user_email')?? 'TEMP';
+        $order->user_id = auth()->id();
+        $order-> user_name = auth()->user()->name ?? 'TEMP';
+        $order-> user_email = auth()->user()->email ?? 'TEMP';
         $order-> product_name = $item_name = $request->input('product_name')??'TEMP';
     
 
@@ -76,10 +79,26 @@ class Order_handeling extends Controller
         $order-> product_description = $request->input('product_description');
         $order-> type_of_fillament = $prefered_fillament;
         $order-> color = $request->input('color');
+        $order-> prefered_printer = $request->input('prefered_printer')?? 'No preference';
+        if($request->has('advanced_settings_checkbox')){
+            $order-> support_type = $request->input('support_type')?? 'No preferred support';
+            $order-> infill_density = $request->input('infill_density')?? 15;
+        } else {
+            $order-> support_type = 'No preferred support';
+            $order-> infill_density = 15;
+        }
         $order-> status = 'pending';
+        
         $order->save();
+        auth()->user()->increment('total_prints');
         session()->forget('uploaded_model');
         return view('Order_page', ['prefered_fillament' => $prefered_fillament, 'item_name' => $item_name]);
+    }
+
+
+    public function show(){
+        $orders = auth()->user()->orders()->get();
+        return view('dashboard', ['order' => $orders, 'user' => auth()->user()]);
     }
 }
 

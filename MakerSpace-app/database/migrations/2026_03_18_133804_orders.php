@@ -13,6 +13,8 @@ return new class extends Migration
     {
         schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('user_name');
             $table->string('user_email');
             $table->string('product_name');
