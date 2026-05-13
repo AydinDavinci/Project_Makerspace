@@ -52,5 +52,46 @@ class UserController extends Controller
 
         return view('settings_page', compact('user'));
     }
+
+    public function updatePassword(Request $request){
+        $request->validate([
+            'current_password' => ['required', 'current_password'],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        ]);
+
+        $user = auth()->user();
+        if (!Hash::check($request->current_password, $user->password)) {
+        return back()->withErrors(['current_password' => 'Incorrect current password']);
+    }
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        return redirect()->back()->with('success', 'Password updated successfully!');
+    }
+
+    public function updateUser(Request $request){
+        $request->validate([
+            'username' => ['required', 'string', 'max:255'],
+        ]);
+        $user = auth()->user();
+        $user->name = $request->username;
+        $user->save();
+
+        return redirect()->back()->with('success', 'Username updated successfully!');
+    }
+
+    public function updateRolesBulk(Request $request)
+    {   
+        $request->validate([
+        'roles' => ['required', 'array'],
+        'roles.*' => ['required', 'in:user,print operator,admin'],
+        ]);
+        foreach ($request->roles as $userId => $role) {
+            User::where('id', $userId)->update(['role' => $role]);
+        }
+        return redirect()->back()->with('success', 'User role updated successfully!');
+    }
+
+    
 }
 

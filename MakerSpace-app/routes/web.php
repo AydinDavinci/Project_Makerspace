@@ -85,12 +85,14 @@ Route::get('/settings', function () {
     return view('settings_page', compact('user', 'orders'));
 })->middleware(['auth', 'verified'])->name('settings');
 
+Route::post('/settings/update-user', [App\Http\Controllers\Admin\UserController::class, 'updateUser'])->middleware(['auth', 'verified'])->name('settings.updateUser');
+Route::post('/settings/update-password', [App\Http\Controllers\Admin\UserController::class, 'updatePassword'])->middleware(['auth', 'verified'])->name('settings.updatePassword');
+Route::post('/settings/update-updateRolesBulk', [App\Http\Controllers\Admin\UserController::class, 'updateRolesBulk'])->middleware(['auth', 'verified'])->name('settings.updateRolesBulk');
 Route::get('/home', function () {
     return view('home');
 })->name('Home');   
 
 Route::get('/faq', [PageController::class, 'faq'])->name('faq');
-
 
 
 
