@@ -50,10 +50,10 @@
             <p><strong>Email:</strong> {{ $user->email }} <br><br>
             
            
-            <p> <strong>Password:</strong><input type="password" value="password" placeholder=" Current password" readonly><button  onclick="openEditScreen('password-edit-container')" class="edit-btn">edit</button></p>
+            <p> <strong>Edit Password:</strong><button  onclick="openEditScreen('password-edit-container')" class="edit-btn">edit</button></p>
             <form id ='password-edit-container' action="{{ route('settings.updatePassword') }}" method= "POST" style="display: none">
                 @csrf
-                <strong>Current password:</strong><input type="password" placeholder=" Current password" required> <br>
+                <strong>Current password</strong><input type="password" placeholder=" Current password" required> <br>
 
                 <strong>New password:</strong><input type="password" placeholder=" New password" required> <br>
                 <strong>Confirm new password:</strong><input type="password" placeholder=" Confirm new password" required><br>
@@ -93,7 +93,7 @@
             </select>  
 
             <p>Theme:</p>
-            <select class="theme">
+            <select id="theme" class="theme">
                 <option value="dark">Dark mode</option>
                 <option value="light">Light mode</option>
                 <option value="system">System default</option>
@@ -171,6 +171,8 @@
 
 <script src="/js/user_filter.js"></script>
 <script src='/js/show_container.js'></script>
+<script src='/js/light_or_darkmode.js'></script>
+
 
 </body>
 <footer>

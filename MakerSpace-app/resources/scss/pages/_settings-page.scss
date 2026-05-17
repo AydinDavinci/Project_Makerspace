@@ -18,7 +18,7 @@ body{
     flex-direction: column;
     height: 75px;
     gap: 20px;
-    background-color:var(--background-color);
+    background-color:var(--container-background-color);
     button{
     width: 100px;
     height: 40px;
@@ -36,7 +36,7 @@ body{
     margin-right: auto;
     width: 80%;
     height: auto;
-    background-color: var(--background-color);
+    background-color: var(--container-background-color);
     
 }
 
@@ -78,7 +78,7 @@ body{
 
 .user-card{
     margin-left: 4px;
-    background-color: var(--background-color);
+    background-color: var(--container-background-color);
     border-radius: var(--regular-border-radius);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: 2px solid var(--secondary-text-color);
@@ -126,7 +126,7 @@ body{
     padding: 8px 10px;
     border-radius: var(--regular-border-radius);
     border: 1px solid #ccc;
-    background-color: var(--background-color);
+    background-color: var(--container-background-color);
     color: var(--text-color);
 }
 
@@ -136,7 +136,7 @@ strong{
 
 .order-item{
     height: auto;
-    background-color: var(--background-color);
+    background-color: var(--container-background-color);
     border-radius: var(--regular-border-radius);
     padding: 15px;
     margin: 10px 0;
@@ -178,7 +178,7 @@ strong{
         padding: 10px;
         border-radius: var(--regular-border-radius);
         border: 1px solid #ccc;
-        background-color: var(--background-color);
+        background-color: var(--container-background-color);
         color: var(--text-color);
         font-size: 14px;
 
@@ -202,7 +202,7 @@ strong{
         padding: 10px;
         border-radius: var(--regular-border-radius);
         border: 1px solid #ccc;
-        background-color: var(--background-color);
+        background-color: var(--container-background-color);
         color: var(--text-color);
         font-size: 14px;
 

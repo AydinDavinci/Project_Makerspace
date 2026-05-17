@@ -41,4 +41,5 @@
     </div>
 
 </body>
+<script src='/js/light_or_darkmode.js'></script>
 </html>

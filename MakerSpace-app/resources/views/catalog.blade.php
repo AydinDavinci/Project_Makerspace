@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <title>Catalog | VinciLab</title>
     <!-- <link rel="stylesheet" href="../css/app.css"> -->
-    <link rel="stylesheet" href="{{ asset('../css/style.css') }}">
+    @vite(['resources/scss/app.scss', 'resources/js/app.js'])
+    {{-- <link rel="stylesheet" href="{{ asset('../css/style.css') }}"> --}}
+
+
 
 </head>
 
@@ -61,6 +63,8 @@
         </div>
     </section>
 @include('partials.footer')
+
+
 </body>
 
 </html>

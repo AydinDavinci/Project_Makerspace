@@ -123,5 +123,6 @@
     @include('partials.footer') 
 </footer>
 </body>
+<script src='/js/light_or_darkmode.js'></script>
 </html>
  
