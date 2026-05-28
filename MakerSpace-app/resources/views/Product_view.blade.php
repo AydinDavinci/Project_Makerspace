@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product View</title>
+    <title>Product view | VinciLab</title>
     @vite(['resources/scss/app.scss', 'resources/js/app.js' , 'resources/js/advanced_settings.js'])
 
 
@@ -110,7 +110,7 @@
                 </div>
 
                 <button style=" margin-top: 20px; margin-left: 10px;" class="order-btn">Order now</button>
-                </form>
+            </form>
 
             </div>
         </div>
@@ -123,5 +123,6 @@
     @include('partials.footer') 
 </footer>
 </body>
+<script src='/js/light_or_darkmode.js'></script>
 </html>
  

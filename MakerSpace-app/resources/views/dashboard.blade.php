@@ -4,12 +4,15 @@
     <title>Dashboard | VinciLab</title>
     <!-- <link rel="stylesheet" href="../css/app.css"> -->
     <link rel="stylesheet" href="{{ asset('../css/style.css') }}">
-
+        @vite(['resources/scss/app.scss', 'resources/js/app.js' , 'resources/js/custom_upload.js'])
+    
 </head>
 
 <body>
+    @include('partials.Popup')
     @include('partials.header')
     <!-- left row -->
+    
     <section class="main-section dashboard-main-section">
         <section class="queue">
             <h3>
@@ -187,4 +190,6 @@
     
     @include('partials.footer')
 </body>
+
+<script src='/js/light_or_darkmode.js'></script>
 </html>

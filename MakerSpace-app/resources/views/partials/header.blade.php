@@ -5,6 +5,11 @@
             <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap" rel="stylesheet">
 </head>
 
+@php
+    $avatarUrl = auth()->check() ? auth()->user()->avatar_url : asset('images/user-profilepic.png');
+    $initials = auth()->check() ? strtoupper(substr(auth()->user()->name, 0, 2)) : '';
+@endphp
+
 <header class="header">
     <div class="header__content">
         <div class="header__content-logo-container">
@@ -16,10 +21,17 @@
                 <a href="{{ route('model.custom_upload') }}" class="upload-btn"><i class="fa-solid fa-plus"></i>Create</a>     
                 <span><i class="fa-regular fa-bell"></i></span>
                 <div class="dropdown">
-                <img class="Logo" src="{{ asset('images/user-profilepic.png') }}" alt="profile_picture" width="40" height="40">
+                <div class="avatar-container">
+                    <img class="avatar-bg" src="{{ $avatarUrl }}" alt="avatar background">
+                    @if($initials)
+                        <div class="avatar-initials">{{ $initials }}</div>
+                    @endif
+                </div>
+                    
                  <div class="dropdown-content">
                         <a class="profile" href="{{ route('profile.edit') }}">Profile</a>
                         <a class="logout" href="{{ route('logout') }}">Logout</a>
+                        <a class="settings" href="{{ route('settings') }}">Settings</a>
                         {{-- <a class="settings" href="{{ route('settings') }}">settings</a> --}}
                         
                     </div>
@@ -53,10 +65,10 @@
         </div>
         <div>   
             <ul>
-                <a href=""><li>Dashboard</li></a>
+                <a href="{{ route('dashboard') }}"><li>Dashboard</li></a>
                 <a href="{{ route('catalog.view') }}"><li>Catalog</li></a>
-                <a href=""><li>Instellingen</li></a>
-                <a href=""><li>FAQ</li></a>
+                <a href="{{ route('settings') }}"><li>Instellingen</li></a>
+                <a href="{{ route('faq') }}"><li>FAQ</li></a>
             </ul>
         </div>
 

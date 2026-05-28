@@ -6,7 +6,9 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\Order_handeling;
 use App\Http\Controllers\ModelController;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\Admin\userController;
 /*
+
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -49,16 +51,6 @@ Route::get('/dashboard', [Order_handeling::class, 'show'])->middleware(['auth', 
 
 Route::post('/order-handeling', [Order_handeling::class, 'order'])->name('order-handeling');
 
-Route::get('/Order_submitted_screen', function () {
-    return view('Order_page');
-})->middleware(['auth', 'verified'])->name('order_submitted_screen');   
-
-
-Route::get('/Order-page', function () {
-    return view('Order_page');
-
-})->middleware(['auth', 'verified'])->name('order-page');
-
 
 Route::get('/custom_upload', [ModelController::class, 'custom_upload'])
     ->middleware(['auth', 'verified'])
@@ -77,11 +69,24 @@ Route::post('/custom_upload_info', [Order_handeling::class, 'custom_order'])
     ->name('model.custom_order.post');
 
 
+Route::get('/settings', function () {
+    $user = auth()->user();
+    $orders = app(Order_handeling::class)->show()->getData()['order'] ?? collect();
+
+    return view('settings_page', compact('user', 'orders'));
+})->middleware(['auth', 'verified'])->name('settings');
+
+Route::post('/settings/update-user', [App\Http\Controllers\Admin\UserController::class, 'updateUser'])->middleware(['auth', 'verified'])->name('settings.updateUser');
+Route::post('/settings/update-password', [App\Http\Controllers\Admin\UserController::class, 'updatePassword'])->middleware(['auth', 'verified'])->name('settings.updatePassword');
+Route::post('/settings/update-updateRolesBulk', [App\Http\Controllers\Admin\UserController::class, 'updateRolesBulk'])->middleware(['auth', 'verified'])->name('settings.updateRolesBulk');
+
 Route::get('/home', function () {
     return view('home');
-})->name('Home');
+})->name('Home');   
 
 Route::get('/faq', [PageController::class, 'faq'])->name('faq');
+
+
 
 
 require __DIR__.'/auth.php';

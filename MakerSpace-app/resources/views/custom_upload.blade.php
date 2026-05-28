@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite(['resources/scss/app.scss', 'resources/js/app.js' , 'resources/js/custom_upload.js'])
-    <title>Document</title>
+    <title>Custom Upload | VinciLab</title>
 </head>
 <body>
     @include('partials.header')
@@ -41,4 +41,5 @@
     </div>
 
 </body>
+<script src='/js/light_or_darkmode.js'></script>
 </html>
