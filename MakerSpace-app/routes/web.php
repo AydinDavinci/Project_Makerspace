@@ -8,6 +8,7 @@ use App\Http\Controllers\ModelController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\Admin\userController;
 /*
+
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -50,16 +51,6 @@ Route::get('/dashboard', [Order_handeling::class, 'show'])->middleware(['auth', 
 
 Route::post('/order-handeling', [Order_handeling::class, 'order'])->name('order-handeling');
 
-Route::get('/Order_submitted_screen', function () {
-    return view('Order_page');
-})->middleware(['auth', 'verified'])->name('order_submitted_screen');   
-
-
-Route::get('/Order-page', function () {
-    return view('Order_page');
-
-})->middleware(['auth', 'verified'])->name('order-page');
-
 
 Route::get('/custom_upload', [ModelController::class, 'custom_upload'])
     ->middleware(['auth', 'verified'])
@@ -88,11 +79,13 @@ Route::get('/settings', function () {
 Route::post('/settings/update-user', [App\Http\Controllers\Admin\UserController::class, 'updateUser'])->middleware(['auth', 'verified'])->name('settings.updateUser');
 Route::post('/settings/update-password', [App\Http\Controllers\Admin\UserController::class, 'updatePassword'])->middleware(['auth', 'verified'])->name('settings.updatePassword');
 Route::post('/settings/update-updateRolesBulk', [App\Http\Controllers\Admin\UserController::class, 'updateRolesBulk'])->middleware(['auth', 'verified'])->name('settings.updateRolesBulk');
+
 Route::get('/home', function () {
     return view('home');
 })->name('Home');   
 
 Route::get('/faq', [PageController::class, 'faq'])->name('faq');
+
 
 
 

@@ -7,74 +7,77 @@
     --main-gradient: linear-gradient(104deg, #4EADD9 23%, #328F7F 60%);
 
     /* Backgrounds */
-     --container-background-color: #e0e0e0;
+    --container-background-color: #e6e6e6; /* zachter */
     --background-body: var(--body-background-color);
-    --background-color: #f5f5f5;
-    --body-background-color: #ffffff;
+    --background-color: #efefef; /* minder fel dan #f2f2f2 */
+    --body-background-color: #f7f7f7; /* minder fel dan #fafafa */
     --card-background-color: #ffffff;
-    --header-background-color: #ffffff;
-    --subheader-background-color: #f0f0f0;
+    --header-background-color: #f7f7f7;
+    --subheader-background-color: #e9e9e9;
     --dropdown-background-color: #ffffff;
     --input-background-color: #ffffff;
-    --button-background-color: #e6e6e6;
+    --button-background-color: #e1e1e1;
 
-    --tag-background-color: #e6e6e6;
-    --tag-background-hover-color: #dcdcdc;
+    --tag-background-color: #e3e3e3;
+    --tag-background-hover-color: #d5d5d5;
     --catalog-card-background-color: #ffffff;
-    --search-button-background-color: #e6e6e6;
-    --search-button-hover-background-color: #d0d0d0;
+    --search-button-background-color: #e1e1e1;
+    --search-button-hover-background-color: #c9c9c9;
 
     /* Text */
     --text-color: #1a1a1a;
-    --secondary-text-color: #555555;
-    --muted-text-color: #888888;
+    --secondary-text-color: #4a4a4a;
+    --muted-text-color: #757575;
     --header-text-color: #1a1a1a;
-    --subheader-text-color: #3b3b3b;
+    --subheader-text-color: #383838;
 
-    --tag-text-color: #555555;
+    --tag-text-color: #4a4a4a;
     --tag-text-hover-color: #1a1a1a;
-    --creator-text-color: #555555;
-    --date-text-color: #555555;
+    --creator-text-color: #4a4a4a;
+    --date-text-color: #4a4a4a;
 
     /* Borders & shadows */
-    --border-color: #dcdcdc;
-    --border-color-strong: #bcbcbc;
-    --border-color-light: #e6e6e6;
+    --border-color: #d0d0d0;
+    --border-color-strong: #b5b5b5;
+    --border-color-light: #dedede;
     --border-radius: 10px;
-    --shadow-color: rgba(0, 0, 0, 0.08);
+    --shadow-color: rgba(0, 0, 0, 0.05); /* nóg zachter */
 
     /* States */
-    --hover-color: #e6e6e6;
-    --active-color: #d0d0d0;
-    --focus-ring: 0 0 0 3px rgba(78, 173, 217, 0.4);
+    --hover-color: #e1e1e1;
+    --active-color: #c9c9c9;
+    --focus-ring: 0 0 0 3px rgba(78, 173, 217, 0.28);
 
     /* Avatar */
-    --avatar-bg: #cccccc;
+    --avatar-bg: #c4c4c4;
     --avatar-text-color: #ffffff;
 
     /* Buttons */
     --button-text-color: #1a1a1a;
-    --button-hover-background: #dcdcdc;
-    --button-hover-border: #bcbcbc;
+    --button-hover-background: #d5d5d5;
+    --button-hover-border: #b5b5b5;
 
     --primary-button-background: var(--main-gradient);
     --primary-button-text-color: #ffffff;
     --primary-button-hover-border-color: var(--primary-color);
 
     /* Scrollbars */
-    --scrollbar-thumb-color: #cccccc;
+    --scrollbar-thumb-color: #c4c4c4;
     --scrollbar-track-color: transparent;
 
-
+    /* Catalog items */
     --text-primary: #1a1a1a;
     --item-background-color: #ffffff;
-    --item-image-background-color: #e6e6e6;
-    --item-image-text-color: #555555;
-    --item-creator-color: #555555;
-    --item-date-color: #555555;
+    --item-image-background-color: #e1e1e1;
+    --item-image-text-color: #4a4a4a;
+    --item-creator-color: #4a4a4a;
+    --item-date-color: #4a4a4a;
+
     --p-detail-font: "Inter", sans-serif;
     --p-detail-size: 14px;
-    }
+}
+
+
 
 
 

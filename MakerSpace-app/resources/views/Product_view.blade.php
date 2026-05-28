@@ -110,7 +110,7 @@
                 </div>
 
                 <button style=" margin-top: 20px; margin-left: 10px;" class="order-btn">Order now</button>
-                </form>
+            </form>
 
             </div>
         </div>

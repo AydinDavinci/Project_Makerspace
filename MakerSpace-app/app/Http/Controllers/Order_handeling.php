@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\order;
 use App\Models\User;
+use App\Notifications\NewOrderNotification;
 
 class Order_handeling extends Controller
 {   
@@ -38,6 +39,7 @@ class Order_handeling extends Controller
         $order-> type_of_fillament = $prefered_fillament ??"TEMP";
         $order-> color = $request->input('color');
         $order-> prefered_printer = $request->input('prefered_printer')?? 'No preference';
+        
         if($request->has('advanced_settings_checkbox')){
             $order-> support_type = $request->input('support_type')?? 'No preferred support';
             $order-> infill_density = $request->input('infill_density')?? 15;
@@ -46,10 +48,12 @@ class Order_handeling extends Controller
             $order-> infill_density = 15;
         }
         $order-> status = 'pending';
+
         $order->save();
         auth()->user()->increment('total_prints');
 
-        return view('Order_page', ['prefered_fillament' => $prefered_fillament, 'item_name' => $item_name]);
+        return redirect()->route("dashboard")->with('order_success', 'Order placed succesfully!');
+
     }
 
     // this function is for an non existing file
@@ -71,10 +75,7 @@ class Order_handeling extends Controller
         $order-> user_email = auth()->user()->email ?? 'TEMP';
         $order-> product_name = $item_name = $request->input('product_name')??'TEMP';
     
-
         $order->product_file = session('uploaded_model', 'TEMP_FILE')?? 'No file found for non existing order';
-
-
 
         $order-> product_description = $request->input('product_description');
         $order-> type_of_fillament = $prefered_fillament;
@@ -90,9 +91,11 @@ class Order_handeling extends Controller
         $order-> status = 'pending';
         
         $order->save();
+
         auth()->user()->increment('total_prints');
         session()->forget('uploaded_model');
-        return view('Order_page', ['prefered_fillament' => $prefered_fillament, 'item_name' => $item_name]);
+        return redirect()->route("dashboard")->with('order_success', 'Order placed succesfully!');
+
     }
 
 
