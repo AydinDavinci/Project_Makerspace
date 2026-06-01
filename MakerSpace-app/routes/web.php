@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::post('/', [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'store']);
+
 
 Route::get('/catalog', [ItemController::class, 'index'])->middleware(['auth', 'verified'])->name('catalog.view');
 
