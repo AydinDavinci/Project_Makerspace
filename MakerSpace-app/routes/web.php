@@ -70,7 +70,8 @@ Route::get('/dashboard-student', function () {
 })->name('Dashboard Student');
 
 Route::get('/dashboard-admin', function () {
-    return view('dashboard-admin'); // or 'admin.dashboard' if in subfolder
-});
+    return view('dashboard-admin');
+})->name('Dashboard Admin');
+
 
 require __DIR__.'/auth.php';

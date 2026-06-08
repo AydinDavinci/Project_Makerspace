@@ -19,8 +19,6 @@
         margin: 5px 0 10px 0;
     }
 
-
-
     &__ready {
         width: 25%;
         background-color: var(--background-color);
@@ -28,6 +26,8 @@
         border-radius: 10px;
         padding: var(--regular-container-padding);
         box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
     }
 
     &-center {
@@ -41,8 +41,6 @@
         gap: 20px;
         // justify-content: space-between;
     }
-
-
 }
 
 .queue {
@@ -52,13 +50,15 @@
     border-radius: 10px;
     padding: var(--regular-container-padding);
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
 
     &__container {
         display: flex;
         flex-direction: column;
         gap: 15px;
-        height: 90%;
-        max-height: 90%;
+        flex: 1;
+        min-height: 0;
         overflow-y: auto;
 
         /* Custom Scrollbar */
@@ -108,7 +108,6 @@
 
                 &--date {
                     color: var(--secondary-text-color);
-
                 }
 
                 &--state {
@@ -145,50 +144,12 @@
     }
 }
 
-.queue-item-state {
-
-    &--pending,
-    &--accepted,
-    &--denied {
-        position: relative;
-        border-radius: var(--regular-container-padding);
-        overflow: hidden;
-
-        &::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 2px;
-        }
-    }
-
-    &--pending {
-        &::after {
-            background: linear-gradient(90deg, #fbbf24, #f97316);
-        }
-    }
-
-    &--accepted {
-        &::after {
-            background: linear-gradient(90deg, #4ade80, #16a34a);
-        }
-    }
-
-    &--denied {
-        &::after {
-            background: linear-gradient(90deg, #f87171, #dc2626);
-        }
-    }
-}
-
 .ready__container {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    height: 90%;
-    max-height: 90%;
+    flex: 1;
+    min-height: 0;
     overflow-y: auto;
 
     /* Custom Scrollbar */
@@ -296,132 +257,56 @@
     border-radius: 10px;
 }
 
-.center {
+.center-notis {
+    background-color: var(--background-color);
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    border-radius: 10px;
+    padding: var(--regular-container-padding);
+    box-sizing: border-box;
 
+    &__container {
+        display: flex;
+        flex-direction: column;
+        max-height: 85%;
+        // border: 1px solid blue;
+        gap: 10px;
+        overflow-y: auto;
 
-    &-overzicht {
-        // border: 1px solid red;
-        width: 100%;
-
-
-        &-container {
+        &__box {
             // border: 1px solid red;
+            height: 60px;
+            background-color: var(--container-background-color);
+            border-radius: 10px;
+            padding: 0 20px 0 20px;
+            box-sizing: border-box;
             display: flex;
+            align-items: center;
             flex-direction: row;
-            flex-wrap: wrap;
-            width: 100%;
+            font-size: 12px;
             justify-content: space-between;
-            row-gap: 20px;
-
-            &-box {
-                width: calc(50% - 10px);
-                // border: 1px solid blue;
-                height: 140px;
-                border-radius: 10px;
-                box-sizing: border-box;
-                padding: var(--regular-container-padding);
-                background: var(--main-gradient);
-                text-align: right;
-                color: white;
-
-                &__content {
-                    display: flex;
-                    // border: 1px solid red;
-                    height: 100%;
-                    align-items: center;
-                    justify-content: flex-end;
-                    gap: 10px;
-
-                    div {
-                        display: flex;
-                        flex-direction: column;
-                        gap: 0;
-                        width: 50%;
-                    }
-
-                    i {
-                        color: var(--text-color);
-                        padding: 0;
-                        font-size: 22px;
-                    }
-
-                    h3 {
-                        font-size: 32px;
-                        margin: 0;
-                    }
-
-                    span {
-                        font-size: 12px;
-                        font-weight: 300;
-                    }
-
-                }
-
-                &:nth-child(even) {
-                    text-align: left;
-                    background: var(--main-gradient-mirrored);
-
-                    .center-overzicht-container-box__content {
-                        justify-content: flex-start;
-                    }
-                }
-            }
-        }
-    }
-
-    &-notis {
-        background-color: var(--background-color);
-        width: 100%;
-        height: 100%;
-        border-radius: 10px;
-        padding: var(--regular-container-padding);
-        box-sizing: border-box;
-
-        &__container {
-            display: flex;
-            flex-direction: column;
-            max-height: 85%;
-            // border: 1px solid blue;
             gap: 10px;
-            overflow-y: auto;
+            cursor: pointer;
 
-            &__box {
-                // border: 1px solid red;
-                height: 60px;
-                background-color: var(--container-background-color);
-                border-radius: 10px;
-                padding: 0 20px 0 20px;
-                box-sizing: border-box;
+            &__left {
                 display: flex;
-                align-items: center;
                 flex-direction: row;
-                font-size: 12px;
-                justify-content: space-between;
                 gap: 10px;
-                cursor: pointer;
+                align-items: center;
+                // border: 1px solid red;
+                width: 90%;
+            }
 
-                &__left {
-                    display: flex;
-                    flex-direction: row;
-                    gap: 10px;
-                    align-items: center;
-                    // border: 1px solid red;
-                    width: 90%;
-                }
-
-                &__right {
-                    // border: 1px solid blue;
-                    width: 10%;
-                    text-align: right;
-                    color: #313131;
-                    font-weight: 500;
-                    font-size: 14px;
-                }
-
-
+            &__right {
+                // border: 1px solid blue;
+                width: 10%;
+                text-align: right;
+                color: #313131;
+                font-weight: 500;
+                font-size: 14px;
             }
         }
-
     }
 }
 
@@ -468,11 +353,10 @@
     }
 
     button {
-           background-color: var(--container-background-color);
-           border: none;
-           width: 115px;
-           height: 30px;
-           border-radius: 5px;
-
+        background-color: var(--container-background-color);
+        border: none;
+        width: 115px;
+        height: 30px;
+        border-radius: 5px;
     }
 }
