@@ -1,0 +1,106 @@
+.queue-item-state {
+    &--pending,
+    &--accepted,
+    &--denied {
+        position: relative;
+        border-radius: var(--regular-container-padding);
+        overflow: hidden;
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+        }
+    }
+
+    &--pending {
+        &::after {
+            background: linear-gradient(90deg, #fbbf24, #f97316);
+        }
+    }
+
+    &--accepted {
+        &::after {
+            background: linear-gradient(90deg, #4ade80, #16a34a);
+        }
+    }
+
+    &--denied {
+        &::after {
+            background: linear-gradient(90deg, #f87171, #dc2626);
+        }
+    }
+}
+
+.center {
+    &-overzicht {
+        // border: 1px solid red;
+        width: 100%;
+
+        &-container {
+            // border: 1px solid red;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+            justify-content: space-between;
+            row-gap: 20px;
+
+            &-box {
+                width: calc(50% - 10px);
+                // border: 1px solid blue;
+                height: 140px;
+                border-radius: 10px;
+                box-sizing: border-box;
+                padding: var(--regular-container-padding);
+                background: var(--main-gradient);
+                text-align: right;
+                color: white;
+
+                &__content {
+                    display: flex;
+                    // border: 1px solid red;
+                    height: 100%;
+                    align-items: center;
+                    justify-content: flex-end;
+                    gap: 10px;
+
+                    div {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 0;
+                        width: 50%;
+                    }
+
+                    i {
+                        color: var(--text-color);
+                        padding: 0;
+                        font-size: 22px;
+                    }
+
+                    h3 {
+                        font-size: 32px;
+                        margin: 0;
+                    }
+
+                    span {
+                        font-size: 12px;
+                        font-weight: 300;
+                    }
+                }
+
+                &:nth-child(even) {
+                    text-align: left;
+                    background: var(--main-gradient-mirrored);
+
+                    .center-overzicht-container-box__content {
+                        justify-content: flex-start;
+                    }
+                }
+            }
+        }
+    }
+}

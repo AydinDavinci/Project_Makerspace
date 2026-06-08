@@ -39,7 +39,8 @@
                         <div class="item__creator">Creator</div>
                         <div class="item__details">
                             <div class="item__details-date">dd-mm-yyyy</div>
-                            <div class="item__details-button"><button>Details</button></div>
+                            <div><a href="{{ route('product.view') }}" class="item__details-button"><button>Details</button></a></div>
+                            {{-- <div class="item__details-button"><button>Details</button></div> --}}
                         </div>
                     </div>
                 </div>
@@ -47,7 +48,7 @@
             </div>
         </div>
     </section>
-
+@include('partials.footer')
 </body>
 
 </html>

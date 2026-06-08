@@ -1,9 +1,8 @@
-
-.header{
+.header {
     width: 100%;
     background-color: #121212;
     display: flex;
-    align-items: center; 
+    align-items: center;
     justify-content: center;
     height: 120px;
     color: #ffffff;
@@ -11,21 +10,20 @@
     font-family: "Geologica", sans-serif;
 
     &__content {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content:space-between;
-    width: 1440px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 1240px;
 
         &__content-logo-container {
-        display: flex;
-        align-items: center;
-        gap: 25px
+            display: flex;
+            align-items: center;
 
-        span {
-            font-size: 21px;
+            gap: 25px span {
+                font-size: 21px;
+            }
         }
-    }
     }
 
     &__info {
@@ -43,6 +41,11 @@
             }
 
             .upload-btn {
+                text-decoration: none;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
                 font-size: 14px;
                 background-color: #1A1A1A;
                 border: none;
@@ -54,6 +57,14 @@
 
                 i {
                     margin-right: 5px;
+                    align-items: center;
+                }
+
+                a {
+                    color: white;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
                 }
 
                 &:hover {
@@ -70,39 +81,43 @@
     }
 }
 
+
+
 .sub-header {
     height: 70px;
     background-color: #1A1A1A;
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
     margin-bottom: 25px;
     flex-direction: row;
     font-family: "Geologica", sans-serif;
 
     &__container {
-        width: 1440px;
-            /* border: 1px solid red; */
+        width: 1240px;
+        /* border: 1px solid red; */
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
 
-         h1 {
-    font-size: 24px;
-    font-weight: 500;
-        
-    }
+        h1 {
+            font-size: 24px;
+            font-weight: 500;
+
+        }
+
         ul {
             display: flex;
             flex-direction: row;
             list-style: none;
             gap: 70px;
             font-weight: 500;
+
             li {
                 color: #3B3B3B;
 
-                span {
+                &:hover {
                     color: white;
                 }
             }
@@ -111,10 +126,6 @@
         a {
             text-decoration: none;
         }
-            }
-   
+    }
+
 }
-    
-
-
-
