@@ -10,6 +10,7 @@
 <body>
     @include('partials.header')
 
+    <!-- List for the orders in queue -->
     <section class="main-section dashboard-main-section">
 
         <section class="queue">
@@ -18,8 +19,10 @@
                 Bestellingen
             </h3>
 
+            <!-- List of orders -->
             <div class="queue__container">
 
+                <!-- Order card  -->
                 <div class="queue__container__box ready-item-state">
                     <div class="queue__container__box__left">
                         <span class="queue__container__box__left--name">Print 31</span>
@@ -85,6 +88,7 @@
         </section>
 
 
+        <!-- Container for the misc options -->
         <section class="dashboard-main-section-center">
             <div class="dashboard-sub-sections-container">
                 <section class="dashboard-sub-section">
@@ -104,12 +108,16 @@
                 </section>
             </div>
 
+
+            <!-- Container for the notifications -->
             <section class="center-notis">
                 <h3>
                     <i class="fa-regular fa-bell"></i>
                     Notificaties
                 </h3>
+                <!-- List of notifications -->
                 <div class="center-notis__container">
+                    <!-- Notification card -->
                     <div class="center-notis__container__box">
                         <div class="center-notis__container__box__left">
                             <div class="notification-status--unread"></div>
@@ -164,13 +172,17 @@
             </section>
         </section>
 
-        <!-- right column -->
+        <!-- COntainer for the users -->
         <section class="dashboard-main-section__ready">
             <h3><i class="fa-solid fa-people-line"></i>Gebruikers</h3>
+            <!-- User search bar -->
             <input type="text" id="dashboard-admin-usersearch" placeholder="Zoek gebruiker...">
 
+            <!-- List of users -->
             <div class="ready__container">
 
+
+                <!-- User card -->
                 <div class="ready__container__box">
                     <div class="ready__container__box__left">
                         <span class="ready__container__box__left--name">Aydin Davinci</span>
@@ -225,6 +237,7 @@
 
     @include('partials.footer')
 
+    <!-- script for the User search bar -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const searchInput = document.getElementById('dashboard-admin-usersearch');
