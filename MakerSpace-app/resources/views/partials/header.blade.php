@@ -63,7 +63,7 @@
         <div class="sub-header__container__title">
             <h1>{{ $pageTitle }}</h1>
         </div>
-        <div>   
+        <div class="sub-header__container__nav">
             <ul>
                 <a href="{{ route('dashboard') }}"><li>Dashboard</li></a>
                 <a href="{{ route('catalog.view') }}"><li>Catalog</li></a>

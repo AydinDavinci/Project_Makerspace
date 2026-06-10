@@ -14,26 +14,25 @@ class Order_handeling extends Controller
     public function order(Request $request){
         $prefered_fillament = $request->input('type_of_fillament');
         
-      
-
         $request ->validate([
             'product_name' => 'required|string|max:255',
             'product_description' => 'nullable|string|max:2000',
+            'product_file' => 'required|string|max:255',
             'type_of_fillament' => 'required|string',
             'color' => 'nullable|string|max:50',
             'prefered_printer' => 'nullable|string|max:100',
             'support_type' => 'nullable|string|max:100',
-            'infill_density' => 'nullable|integer|min:1|max:30'
+            'infill_density' => 'nullable|integer|min:1|max:30',
+            'extra_settings' => 'nullable|string|max:2000',
 
         ]);
-
         $order = new Order();
         $order->user_id = auth()->id();
         $order-> user_name = auth()->user()->name ?? 'TEMP';
         $order-> user_email = auth()->user()->email ?? 'TEMP';
         $order-> product_name = $item_name = $request->input('product_name')??'TEMP';
         
-        $order->product_file = session('uploaded_model', 'TEMP_FILE')?? 'No file found for already existing order';
+        $order->product_file = $request->input('product_file');
  
         $order-> product_description = $request->input('product_description')??'TEMP';
         $order-> type_of_fillament = $prefered_fillament ??"TEMP";
@@ -99,10 +98,22 @@ class Order_handeling extends Controller
     }
 
 
-    public function show(){
-        $orders = auth()->user()->orders()->get();
-        view('settings_page', ['order' => $orders, 'user' => auth()->user()]);
-        return view('dashboard', ['order' => $orders, 'user' => auth()->user()]);
-    }
-}
+public function show() {
+    
+    $user = auth()->user();
 
+
+    if ($user->role === 'admin') {
+        return view('admin_dashboard', [
+            'orders' => order::all(),
+            'user' => $user,
+            'users' => User::all()
+        ]);
+    }
+
+    return view('dashboard', [
+        'order' => $user->orders,
+        'user' => $user
+    ]);
+}
+}

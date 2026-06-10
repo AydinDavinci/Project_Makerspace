@@ -41,6 +41,7 @@
             }
 
             .upload-btn {
+                position: relative;
                 text-decoration: none;
                 display: flex;
                 justify-content: center;
@@ -55,6 +56,7 @@
                 height: 40px;
                 border-radius: 10px;
                 font-weight: 600;
+                overflow: hidden;
 
                 i {
                     margin-right: 5px;
@@ -68,19 +70,31 @@
                     gap: 5px;
                 }
 
-                &:hover {
-                    background-color: var(--button-hover-background);
-                    border: 2px dashed var(--button-hover-border);
-                    cursor: pointer;
-                }
             }
-
-
-
-
-        }
+.upload-btn:hover {
+    background: var(--button-hover-background);
     }
+
+.upload-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 2px dashed white;
+    border-radius: inherit;
+    clip-path: polygon(
+        0% 0%, 0% 0%,   
+        0% 0%, 0% 0%
+    );
+    transition: clip-path 0.6s ease;
 }
+}
+
+.upload-btn:hover::before {
+   clip-path: polygon(
+        0% 0%, 100% 0%,   /* bovenlijn */
+        100% 100%, 0% 100% /* rechts → onder → links */
+    );
+}}}
 
 .dropdown {
   position: relative;
@@ -135,6 +149,13 @@
 
     &:hover {
         background-color: var(--hover-color);
+    }
+}
+
+.sub-header__container__nav ul li{
+    transition: color var(--animation-duration) ease;
+    &hover{
+        color: var(--hover-color);
     }
 }
 

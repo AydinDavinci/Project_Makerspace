@@ -6,7 +6,7 @@
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
     {{-- <link rel="stylesheet" href="{{ asset('../css/style.css') }}"> --}}
 
-
+    {{-- <livewire:example /> --}}
 
 </head>
 
@@ -50,7 +50,7 @@
                                 <div class="item__details-date">{{ $item->item_date }}</div>
                                 <div>
                                     <a href="{{ route('product.view', ['id' => $item->id]) }}" class="item__details-button">
-                                        <button>Details</button>
+                                        <button class="detail-button">Details</button>
                                     </a>
                                 </div>
                             </div>
