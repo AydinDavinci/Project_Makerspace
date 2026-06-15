@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\order;
 use App\Models\User;
-use App\Notifications\NewOrderNotification;
+use App\Notifications\OrderStatusChangedNotification;
+
 
 class Order_handeling extends Controller
 {   
@@ -102,7 +103,29 @@ class Order_handeling extends Controller
     public function show(){
         $orders = auth()->user()->orders()->get();
         view('settings_page', ['order' => $orders, 'user' => auth()->user()]);
-        return view('dashboard', ['order' => $orders, 'user' => auth()->user()]);
+
+        $user = auth()->user();
+        $notifications = $user->notifications()->latest()->limit(10)->get();
+        $unreadCount = $user->unreadNotifications()->count();
+
+        return view('dashboard', [
+            'order' => $orders,
+            'user' => $user,
+            'notifications' => $notifications,
+            'unreadCount' => $unreadCount,
+        ]);
     }
+
+    private function notifyOrderStatusChanged(order $order): void
+    {
+        $user = $order->user()->first();
+        if (!$user) {
+            return;
+        }
+
+        $user->notify(new OrderStatusChangedNotification($order));
+    }
+
 }
+
 
