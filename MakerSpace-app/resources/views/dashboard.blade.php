@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Dashboard | VinciLab</title>
     <!-- <link rel="stylesheet" href="../css/app.css"> -->
     <link rel="stylesheet" href="{{ asset('../css/style.css') }}">
-        @vite(['resources/scss/app.scss', 'resources/js/app.js' , 'resources/js/custom_upload.js'])
-    
+    @vite(['resources/scss/app.scss', 'resources/js/app.js', 'resources/js/custom_upload.js'])
+
 </head>
 
 <body>
     @include('partials.Popup')
     @include('partials.header')
     <!-- left row -->
-    
+
     <section class="main-section dashboard-main-section">
         <section class="queue">
             <h3>
@@ -21,21 +22,20 @@
             </h3>
             <div class="queue__container">
                 @foreach ($order as $o)
-                <div class="queue__container__box queue-item-state--{{ $o->status }}">
-                   <div class="queue__container__box__left">
-                    <span class="queue__container__box__left--name">{{ $o->product_name }}</span>
-                    <span class="queue__container__box__left--date">{{ $o->created_at->format('d/m/Y') }}</span>
-                   </div>
-                   <div class="queue__container__box__right">
-                    <span class="queue__container__box__left--state">{{ ucfirst($o->status) }}</span>
-                    <span class="queue__container__box__left--id">ID: 00{{ $o->id }}</span>
-                   </div>
-                   @if ($o->status === 'completed')
-                   
-                   @endif
-                </div>
+                    <div class="queue__container__box queue-item-state--{{ $o->status }}">
+                        <div class="queue__container__box__left">
+                            <span class="queue__container__box__left--name">{{ $o->product_name }}</span>
+                            <span class="queue__container__box__left--date">{{ $o->created_at->format('d/m/Y') }}</span>
+                        </div>
+                        <div class="queue__container__box__right">
+                            <span class="queue__container__box__left--state">{{ ucfirst($o->status) }}</span>
+                            <span class="queue__container__box__left--id">ID: 00{{ $o->id }}</span>
+                        </div>
+                        @if ($o->status === 'completed')
+                        @endif
+                    </div>
                 @endforeach
-                
+
 
             </div>
         </section>
@@ -67,7 +67,7 @@
                     </div>
 
 
-                     <div class="center-overzicht-container-box">
+                    <div class="center-overzicht-container-box">
                         <div class="center-overzicht-container-box__content">
                             <span class="content-icon">
                                 <i class="fa-solid fa-list-check"></i>
@@ -82,12 +82,13 @@
                     </div>
 
 
-                     <div class="center-overzicht-container-box">
+                    <div class="center-overzicht-container-box">
                         <div class="center-overzicht-container-box__content">
                             <div>
                                 <!-- aantal prints deze week -->
-                                <h3>{{ $user->orders()->where('status', ['pending', 'accepted', 'denied' , 'completed'])->whereBetween('created_at', [now()->startOfWeek(), now()->endOfWeek()])->limit(5)->count() }}/5</h3>
-                                @if ($user->orders()->where('status', ['pending', 'accepted', 'denied' , 'completed'])->whereBetween('created_at', [now()->startOfWeek(), now()->endOfWeek()])->limit(5)->count() >= 5)
+                                <h3>{{ $user->orders()->where('status', ['pending', 'accepted', 'denied', 'completed'])->whereBetween('created_at', [now()->startOfWeek(), now()->endOfWeek()])->limit(5)->count() }}/5
+                                </h3>
+                                @if ($user->orders()->where('status', ['pending', 'accepted', 'denied', 'completed'])->whereBetween('created_at', [now()->startOfWeek(), now()->endOfWeek()])->limit(5)->count() >= 5)
                                     <span style="color: red">Geen prints meer deze week</span>
                                 @else
                                     <span>Prints voor deze week</span>
@@ -100,7 +101,7 @@
                     </div>
 
 
-                     <div class="center-overzicht-container-box">
+                    <div class="center-overzicht-container-box">
                         <div class="center-overzicht-container-box__content">
                             <span class="content-icon">
                                 <i class="fa-regular fa-bell"></i>
@@ -123,7 +124,7 @@
                 </h3>
                 <div class="center-notis__container">
                     <div class="center-notis__container__box">
-                        
+
                         <div class="center-notis__container__box__left">
 
                             <div class="notification-status--unread"></div>
@@ -136,7 +137,7 @@
                         </div>
                     </div>
                     <div class="center-notis__container__box">
-                        
+
                         <div class="center-notis__container__box__left">
 
                             <div class="notification-status--unread"></div>
@@ -149,7 +150,7 @@
                         </div>
                     </div>
                     <div class="center-notis__container__box">
-                        
+
                         <div class="center-notis__container__box__left">
 
                             <div class="notification-status--read"></div>
@@ -165,18 +166,19 @@
             </section>
 
         </section>
-        
+
         <!-- right row -->
         <section class="dashboard-main-section__ready">
             <h3><i class="fa-solid fa-cube"></i>Gereed</h3>
             <div class="ready__container">
-                @foreach($order as $o)
-                    @if($o->status === 'completed')
+                @foreach ($order as $o)
+                    @if ($o->status === 'completed')
                         <div class="ready__container__box ready-item-state">
                             <div class="ready__container__box__left">
                                 <span class="ready__container__box__left--name">{{ $o->product_name }}</span>
-                                <span class="ready__container__box__left--date">{{ $o->created_at->format('d/m/Y') }}</span>
-                            </div>  
+                                <span
+                                    class="ready__container__box__left--date">{{ $o->created_at->format('d/m/Y') }}</span>
+                            </div>
                             <div class="ready__container__box__right">
                                 <span class="ready__container__box__left--state">ready for pickup✓</span>
                                 <span class="ready__container__box__left--id">ID: 00{{ $o->id }}</span>
@@ -192,4 +194,5 @@
 </body>
 
 <script src='/js/light_or_darkmode.js'></script>
+
 </html>

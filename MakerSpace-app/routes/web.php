@@ -24,15 +24,6 @@ Route::get('/catalog', [ItemController::class, 'index'])->middleware(['auth', 'v
 
 Route::get('/item/{id}', [ItemController::class, 'show'])->middleware(['auth', 'verified'])->name('item.view');
 
-Route::get('/dashboard', function () {
-    $userRole = auth()->user()->role ?? 'guest';
-    if ($userRole === 'admin') {
-        return view('dashboard_admin_test');
-    }
-    $orders = \App\Models\order::where('user_email', auth()->user()->email)->get();
-    return view('dashboard', ['order' => $orders]);
-})->middleware(['auth', 'verified'])->name('dashboard');
-
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -71,7 +62,7 @@ Route::post('/custom_upload_info', [Order_handeling::class, 'custom_order'])
 
 Route::get('/settings', function () {
     $user = auth()->user();
-    $orders = app(Order_handeling::class)->show()->getData()['order'] ?? collect();
+    $orders = $user->orders;
 
     return view('settings_page', compact('user', 'orders'));
 })->middleware(['auth', 'verified'])->name('settings');
@@ -86,6 +77,13 @@ Route::get('/home', function () {
 
 Route::get('/faq', [PageController::class, 'faq'])->name('faq');
 
+
+Route::get('/admin/dashboard', function () {
+    return view('admin_dashboard', [
+        'orders' => \App\Models\order::all(),
+        'users' => \App\Models\User::all(),
+    ]);
+})->middleware(['auth', 'verified', 'role:admin'])->name('admin.dashboard');
 
 
 
