@@ -16,7 +16,7 @@
         <section class="queue">
             <h3>
                 <i class="fa-solid fa-box-open"></i>
-                Bestellingen
+                Orders
             </h3>
 
             <!-- List of orders -->
@@ -25,65 +25,25 @@
                 <!-- Order card  -->
                 <div class="queue__container__box ready-item-state">
                     <div class="queue__container__box__left">
-                        <span class="queue__container__box__left--name">Print 31</span>
-                        <span class="queue__container__box__left--date">23-2-2026</span>
+                        <span class="queue__container__box__left--name">Test print</span>
+                        <span class="queue__container__box__left--date">dd-mm-yyyy</span>
                     </div>
                     <div class="queue__container__box__right">
-                        <button class="card-btn">Bekijk</button>
-                        <span class="queue__container__box__left--id">ID: 131</span>
+                        <button class="card-btn">View</button>
+                        <span class="queue__container__box__left--id">ID: ???</span>
                     </div>
                 </div>
 
 
-                <div class="queue__container__box ready-item-state">
-                    <div class="queue__container__box__left">
-                        <span class="queue__container__box__left--name">Print 31</span>
-                        <span class="queue__container__box__left--date">23-2-2026</span>
-                    </div>
-                    <div class="queue__container__box__right">
-                        <button class="card-btn">Gereed</button>
-                        <span class="queue__container__box__left--id">ID: 131</span>
-                    </div>
-                </div>
 
 
-                <div class="queue__container__box ready-item-state">
-                    <div class="queue__container__box__left">
-                        <span class="queue__container__box__left--name">Print 31</span>
-                        <span class="queue__container__box__left--date">23-2-2026</span>
-                    </div>
-                    <div class="queue__container__box__right">
-                        <button class="card-btn">Gereed</button>
-                        <span class="queue__container__box__left--id">ID: 131</span>
-                    </div>
-                </div>
 
 
-                <div class="queue__container__box ready-item-state">
-                    <div class="queue__container__box__left">
-                        <span class="queue__container__box__left--name">Print 31</span>
-                        <span class="queue__container__box__left--date">23-2-2026</span>
-                    </div>
-                    <div class="queue__container__box__right">
-                        <button class="card-btn">Gereed</button>
-                        <span class="queue__container__box__left--id">ID: 131</span>
-                    </div>
-                </div>
 
 
-                <div class="queue__container__box ready-item-state">
-                    <div class="queue__container__box__left">
-                        <span class="queue__container__box__left--name">Print 31</span>
-                        <span class="queue__container__box__left--date">23-2-2026</span>
-                    </div>
-                    <div class="queue__container__box__right">
-                        <button class="card-btn">Gereed</button>
-                        <span class="queue__container__box__left--id">ID: 131</span>
-                    </div>
-                </div>
 
 
-                <div class="card-placeholder"></div>
+          
             </div>
         </section>
 
@@ -94,17 +54,17 @@
                 <section class="dashboard-sub-section">
                     <h3>
                         <i class="fa-solid fa-inbox"></i>
-                        Verzoeken
+                        Requests
                     </h3>
-                    <button>Bekijk</button>
+                    <button>View</button>
                 </section>
 
                 <section class="dashboard-sub-section">
                     <h3>
                         <i class="fa-solid fa-clock-rotate-left"></i>
-                        Geschiedenis
+                        History
                     </h3>
-                    <button>Bekijk</button>
+                    <button>View</button>
                 </section>
             </div>
 
@@ -113,60 +73,18 @@
             <section class="center-notis">
                 <h3>
                     <i class="fa-regular fa-bell"></i>
-                    Notificaties
+                    Notifications
                 </h3>
                 <!-- List of notifications -->
                 <div class="center-notis__container">
                     <!-- Notification card -->
-                    <div class="center-notis__container__box">
-                        <div class="center-notis__container__box__left">
-                            <div class="notification-status--unread"></div>
-                            <span>Print 31 is klaar! Haal hem op bij de makerspace.</span>
-                        </div>
-                        <div class="center-notis__container__box__right">
-                            <span>2u</span>
-                        </div>
-                    </div>
 
-                    <div class="center-notis__container__box">
-                        <div class="center-notis__container__box__left">
-                            <div class="notification-status--unread"></div>
-                            <span>Print 31 is klaar! Haal hem op bij de makerspace.</span>
-                        </div>
-                        <div class="center-notis__container__box__right">
-                            <span>2u</span>
-                        </div>
-                    </div>
 
-                    <div class="center-notis__container__box">
-                        <div class="center-notis__container__box__left">
-                            <div class="notification-status--unread"></div>
-                            <span>Print 31 is klaar! Haal hem op bij de makerspace.</span>
-                        </div>
-                        <div class="center-notis__container__box__right">
-                            <span>2u</span>
-                        </div>
-                    </div>
 
-                    <div class="center-notis__container__box">
-                        <div class="center-notis__container__box__left">
-                            <div class="notification-status--unread"></div>
-                            <span>Print 31 is klaar! Haal hem op bij de makerspace.</span>
-                        </div>
-                        <div class="center-notis__container__box__right">
-                            <span>2u</span>
-                        </div>
-                    </div>
 
-                    <div class="center-notis__container__box">
-                        <div class="center-notis__container__box__left">
-                            <div class="notification-status--read"></div>
-                            <span>Print 31 is klaar! Haal hem op bij de makerspace.</span>
-                        </div>
-                        <div class="center-notis__container__box__right">
-                            <span>2u</span>
-                        </div>
-                    </div>
+ 
+
+ 
 
                 </div>
             </section>
@@ -174,9 +92,9 @@
 
         <!-- COntainer for the users -->
         <section class="dashboard-main-section__ready">
-            <h3><i class="fa-solid fa-people-line"></i>Gebruikers</h3>
+            <h3><i class="fa-solid fa-people-line"></i>Users</h3>
             <!-- User search bar -->
-            <input type="text" id="dashboard-admin-usersearch" placeholder="Zoek gebruiker...">
+            <input type="text" id="dashboard-admin-usersearch" placeholder="Search user...">
 
             <!-- List of users -->
             <div class="ready__container">
@@ -185,49 +103,22 @@
                 <!-- User card -->
                 <div class="ready__container__box">
                     <div class="ready__container__box__left">
-                        <span class="ready__container__box__left--name">Aydin Davinci</span>
+                        <span class="ready__container__box__left--name">Test user</span>
                         <span class="ready__container__box__left--date">00XXXXXX</span>
                     </div>
                     <div class="ready__container__box__right">
-                        <button class="card-btn">Beheer</button>
-                        <span class="ready__container__box__left--id">ID: 131</span>
+                        <button class="card-btn">Manage</button>
+                        <span class="ready__container__box__left--id">ID: ???</span>
                     </div>
                 </div>
 
 
-                <div class="ready__container__box">
-                    <div class="ready__container__box__left">
-                        <span class="ready__container__box__left--name">Bent Davinci</span>
-                        <span class="ready__container__box__left--date">01YYYYYY</span>
-                    </div>
-                    <div class="ready__container__box__right">
-                        <button class="card-btn">Beheer</button>
-                        <span class="ready__container__box__left--id">ID: 132</span>
-                    </div>
-                </div>
 
 
-                <div class="ready__container__box">
-                    <div class="ready__container__box__left">
-                        <span class="ready__container__box__left--name">Michel Davinci</span>
-                        <span class="ready__container__box__left--date">02ZZZZZZ</span>
-                    </div>
-                    <div class="ready__container__box__right">
-                        <button class="card-btn">Beheer</button>
-                        <span class="ready__container__box__left--id">ID: 133</span>
-                    </div>
-                </div>
 
-                <div class="ready__container__box">
-                    <div class="ready__container__box__left">
-                        <span class="ready__container__box__left--name">Joris Davinci</span>
-                        <span class="ready__container__box__left--date">03DDDDDD</span>
-                    </div>
-                    <div class="ready__container__box__right">
-                        <button class="card-btn">Beheer</button>
-                        <span class="ready__container__box__left--id">ID: 134</span>
-                    </div>
-                </div>
+
+
+
 
                 <!-- Placeholder card -->
                 <div class="card-placeholder"></div>
@@ -237,7 +128,7 @@
 
     @include('partials.footer')
 
-    <!-- script for the User search bar -->
+    <!-- script for the user search bar -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const searchInput = document.getElementById('dashboard-admin-usersearch');
