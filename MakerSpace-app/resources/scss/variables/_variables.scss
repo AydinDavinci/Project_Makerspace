@@ -5,6 +5,15 @@
     --primary-color: #4EAED9;
     --secondary-color: #2F8F7A;
     --main-gradient: linear-gradient(104deg, #4EADD9 23%, #328F7F 60%);
+    --main-gradient-mirrored: linear-gradient(284deg, #4EADD9 23%, #328F7F 60%);
+
+    /* Spacing & radius tokens */
+    --regular-container-padding: 20px;
+    --small-borrder-radius: 8px;
+    --secondary-gray-color: #d8d8d8;
+
+    /* Typography */
+    --subtitle-font: "Inter", sans-serif;
 
     /* Backgrounds */
     --container-background-color: #e6e6e6; /* zachter */
@@ -87,6 +96,15 @@
     --primary-color: #93D2ED;
     --secondary-color: #328F7F;
     --main-gradient: linear-gradient(104deg, #4EADD9 23%, #328F7F 60%);
+    --main-gradient-mirrored: linear-gradient(284deg, #4EADD9 23%, #328F7F 60%);
+
+    /* Spacing & radius tokens */
+    --regular-container-padding: 20px;
+    --small-borrder-radius: 8px;
+    --secondary-gray-color: #2a2a2a;
+
+    /* Typography */
+    --subtitle-font: "Inter", sans-serif;
 
     /* Backgrounds */
     --background-body: var(--body-background-color);

@@ -123,19 +123,7 @@
                     Notifications
                 </h3>
                 <div class="center-notis__container">
-                    <div class="center-notis__container__box">
 
-                        <div class="center-notis__container__box__left">
-
-                            <div class="notification-status--unread"></div>
-                            <span>Print 31 is klaar! Haal hem op bij de makerspace.</span>
-
-                        </div>
-
-                        <div class="center-notis__container__box__right">
-                            <span>0s</span>
-                        </div>
-                    </div>
                     <div class="center-notis__container__box">
 
                         <div class="center-notis__container__box__left">
@@ -154,7 +142,7 @@
                         <div class="center-notis__container__box__left">
 
                             <div class="notification-status--read"></div>
-                            <span>Print 31 is klaar! Haal hem op bij de makerspace.</span>
+                            <span>Print 32 is klaar! Haal hem op bij de makerspace.</span>
 
                         </div>
 
