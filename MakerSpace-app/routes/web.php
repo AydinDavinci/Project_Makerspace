@@ -79,7 +79,7 @@ Route::post('/custom_upload_info', [Order_handeling::class, 'custom_order'])
 
 Route::get('/settings', function () {
     $user = auth()->user();
-    $orders = app(Order_handeling::class)->show()->getData()['order'] ?? collect();
+    $orders = $user->orders;
 
     return view('settings_page', compact('user', 'orders'));
 })->middleware(['auth', 'verified'])->name('settings');
@@ -94,6 +94,13 @@ Route::get('/home', function () {
 
 Route::get('/faq', [PageController::class, 'faq'])->name('faq');
 
+
+Route::get('/admin/dashboard', function () {
+    return view('admin_dashboard', [
+        'orders' => \App\Models\order::all(),
+        'users' => \App\Models\User::all(),
+    ]);
+})->middleware(['auth', 'verified', 'role:admin'])->name('admin.dashboard');
 
 
 

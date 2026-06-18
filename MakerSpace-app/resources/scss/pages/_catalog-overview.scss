@@ -250,9 +250,13 @@ body {
             font-size: 0.8rem;
         }
 
-        button {
-            background: #4EADD9;
-            background: linear-gradient(104deg, rgba(78, 173, 217, 1) 23%, rgba(50, 143, 127, 1) 60%);
+        
+        }
+        
+    }
+.detail-button {
+            position: relative;
+            background:var(--main-gradient);
             width: 110px;
             height: 40px;
             border: none;
@@ -260,11 +264,31 @@ body {
             font-weight: 600;
             border-radius: 10px;
               font-family: "Inter", sans-serif;
-            &:hover {
-                background: none;
-                border: 2px solid white;
-                cursor: pointer;
-            }
         }
-    }
+
+.detail-button::before{
+    content: "";
+        position: absolute;
+        inset: 0; /* geeft breedte + hoogte */
+        border: 2px dashed var(--primary-button-hover-border-color);
+        border-radius: inherit;
+
+        clip-path: polygon(
+            0% 0%, 0% 0%,   /* startpunt */
+            0% 0%, 0% 0%
+    );
+
+    transition: clip-path 0.6s ease;
+}
+
+.detail-button:hover{
+    cursor: pointer;
+    background: transparent;
+}
+
+.detail-button:hover::before{
+    clip-path: polygon(
+    0% 0%, 100% 0%,   /* boven */
+    100% 100%, 0% 100% /* rechts → onder → links */
+);
 }

@@ -28,28 +28,34 @@
                     <img style="width: 50px; height: 50px;" src="{{ asset('images/No_Image_Available.jpg') }}" alt="image-of-product">        </div>
             </div>
 
-            <form action="{{ route('order-handeling') }}" method="POST">
-                @csrf
-            <div class="rest">
-                <p style="font-size: xx-large; margin-top: 125px; color: white;" class="description" name="description"><span>Description</span><p>{{ $items->item_details }}</p>
-                <p style="font-size: medium; color: white;" class="print_time">Estimated print time: {{ $items->estemated_print_time  }}</p>
-                <p class="disclaimer">Disclaimer: print time varies with settings</p>
-                <input type="checkbox"class=advanced_settings_checkbox id="advanced_settings_checkbox" name="advanced_settings_checkbox">Advanced settings<br>
-                <div style="display: none;" class="settings_block advanced_settings">
-                    <div class="settings_block type_of_fillament_div">
-                        <label class="type_of_fillament_label" for="type_of_fillament">Select a preferred fillament type <br></label>
+                <form action="{{ route('order-handeling') }}" method="POST">
+                    @csrf
+                <div class="rest">
+                    <input type="hidden" name="product_name" value="{{ $items->item_name }}">
+                    <input type="hidden" name="product_description" value="{{ $items->item_details }}">
+                    <input type="hidden" name="product_file" value="{{ $items->item_file }}">
+                    <h3 style="font-size: xx-large; margin-top: 125px; color: white;">Description:</h3>
+                    <p class="description">{{ $items->item_details }}</p>
+                    <p style="font-size: medium; color: white;" class="print_time">Estimated print time: {{ $items->estemated_print_time  }}</p>
+                    <p class="disclaimer">Disclaimer: print time varies with settings</p>
+                    
+                    <input type="checkbox" id="advanced_settings_checkbox" >Advanced settings <br>
+                    <div class="advanced_settings" style="display: none;">
+
+                        <div class="settings_block type_of_fillament_div">
+                            <label class="type_of_fillament_label" for="type_of_fillament">
+                                Select a preferred filament type <br>
+                            </label>
                             <select class="type_of_fillament_dropdown" name="type_of_fillament" id="type_of_fillament_dropdown">
                                 <option value="pla">PLA</option>
                                 <option value="abs">ABS</option>
                                 <option value="petg">PETG</option>
-                            </select><br>   
-                        
-                    </div>
+                            </select><br>
+                        </div>
 
-
-                    <div class="settings_block color_selector_div">
-                        <label class="color_selector_label" for="color-selector">Select a preferred color</label>
-                            <select class="color_selector_dropdown" name="color" >
+                        <div class="settings_block color_selector_div">
+                            <label class="color_selector_label" for="color-selector">Select a preferred color</label>
+                            <select class="color_selector_dropdown" name="color">
                                 <option value="red">RED</option>
                                 <option value="orange">ORANGE</option>
                                 <option value="yellow">YELLOW</option>
@@ -59,57 +65,53 @@
                                 <option value="black">BLACK</option>
                                 <option value="gray">GRAY</option>
                             </select>
-                        <br>        
-                        
-                    </div>
-
-                    <div class="settings_block print_selector_div">
-                        <label class="print_selector_label" for="print_selector_dropdown">Select a preferred printer</label>
-                        <select class="print_selector_dropdown" name="print selector" id="print_selector_dropdown">
-                            <option value="bambu">BAMBU</option>
-                            <option value="creality">CREALITY</option>
-                            <option value="anycubic">ANYCUBIC</option>
-                        </select>   
-                    </div>
-                    
-                    
-
-                    <input type="checkbox" class=advanced_support_settings_checkbox id="advanced_support_settings_checkbox" name="advanced_support_settings_checkbox">Advanced Support settings<br>
-                        <div style="display: none;" class="settings_block advanced_support_settings" >
-                            <div class="settings_block print-supports_div">
-                                <label class="print_support_label" for="print_support_label">Select specific support type </label>
-                                    <select class="print_support_dropdown" name="print selector" id="print_support_dropdown">
-                                        <option value="bambu">TREE</option>
-                                        <option value="creality">ORGANIC</option>
-                                        <option value="anycubic">REGULAR</option>
-                                        <option value="none">NONE</option>
-                                    </select> 
-
-                                    <p style="Color: red; width: 100%;" class="support_warning" id="support_warning"></p>
-                                </div>
+                            <br>
                         </div>
 
-                    
-                    <input type="checkbox" class=advanced_support_settings_checkbox id="advanced_infill_settings_checkbox" name="advanced_infill_settings_checkbox">Advanced Infill settings<br>
-                        <div style="display: none;" class="settings_block advanced_infill_settings" >
-                            <div class="settings_block print-supports_div">
-                                <label class="print_support_label" for="print_support_label">Select infill density (base 15%) </label>
-                                    <input type="range" min="1" max="30" value="0" class="slider" id="myRange">
-                                    <span id="rangeValue">0%</span>
-                            </div>
+                        <div class="settings_block print_selector_div">
+                            <label class="print_selector_label" for="print_selector_dropdown">Select a preferred printer</label>
+                            <select class="print_selector_dropdown" name="prefered_printer" id="print_selector_dropdown">
+                                <option value="bambu">BAMBU</option>
+                                <option value="creality">CREALITY</option>
+                                <option value="anycubic">ANYCUBIC</option>
+                            </select>
                         </div>
 
+                    </div> 
 
+                    <input type="checkbox" id="advanced_support_settings_checkbox" name="advanced_support_settings_checkbox">Advanced Support settings <br>
+                    <div class="settings_block advanced_support_settings" style="display: none;">
+                        <div class="settings_block print-supports_div">
+                            <label class="print_support_label" for="print_support_dropdown">Select specific support type</label>
+                            <select class="print_support_dropdown" name="support_type" id="print_support_dropdown">
+                                <option value="tree">TREE</option>
+                                <option value="organic">ORGANIC</option>
+                                <option value="regular">REGULAR</option>
+                                <option value="none">NONE</option>
+                            </select>
+                            <p style="color: red; width: 100%;" class="support_warning" id="support_warning"></p>
+                        </div>
+                    </div>
+
+
+                    <!-- INFILL SETTINGS -->
+                    <input type="checkbox" id="advanced_infill_settings_checkbox" name="advanced_infill_settings_checkbox">Advanced infill settings <br>
+                    <div class="settings_block advanced_infill_settings" style="display: none;">
+                        <div class="settings_block print-supports_div">
+                            <label class="print_support_label" for="myRange">Select infill density (base 15%)</label>
+                            <input type="range" min="1" max="30" value="0" class="slider" id="myRange" name="infill_density">
+                            <span id="rangeValue">0%</span>
+                        </div>
+                    </div>
+
+
+                    <!-- EXTRA SETTINGS -->
                     <div class="extra_settings_div">
                         <label class="extra-settings_label" for="extra-settings_input">Add extra settings</label>
-                        <input class="extra-settings_input" type="text" placeholder = "Add extra settings like print speed , temp etc"> 
+                        <input class="extra-settings_input" type="text" name="extra_settings" placeholder="Add extra settings like print speed , temp etc">
                     </div>
 
-                    
-                    
-                </div>
-
-                <button style=" margin-top: 20px; margin-left: 10px;" class="order-btn">Order now</button>
+                    <button style=" margin-top: 20px; margin-left: 10px;" class="order-btn">Order now</button>
             </form>
 
             </div>
