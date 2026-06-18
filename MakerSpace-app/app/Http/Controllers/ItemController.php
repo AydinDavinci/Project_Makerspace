@@ -8,13 +8,18 @@ class ItemController extends Controller
 {
     public function index()
     {
-        $item = Item::all();
-        return view('catalog', compact('item'));
+        $items = Item::all();
+        return view('catalog', compact('items'));
     }
 
     public function show($id)
-    {
-        $item = Item::find($id);
-        return view('product_view', compact('item'));
-    }
+{
+    $items = Item::find($id);
+    return view('product_view', compact('items'));
+
 }
+
+    // public function added_item(){
+    //  wip
+    // }
+}   

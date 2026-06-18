@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'total_prints',
     ];
 
     /**
@@ -43,6 +45,33 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'role' => 'string',
         ];
     }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->role === 'admin';
+    }
+
+    public function isPrintOperator(): bool
+    {
+        return $this->role === 'print operator';
+    }
+
+    public function isUser(): bool
+    {
+        return $this->role === 'user';
+    }
+
+    public function getAvatarUrlAttribute()
+{
+      return 'https://api.dicebear.com/9.x/glass/svg?seed=' . urlencode($this->name);
+}
+    
 }

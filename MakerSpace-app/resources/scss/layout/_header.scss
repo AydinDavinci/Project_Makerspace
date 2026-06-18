@@ -1,31 +1,29 @@
-
-.header{
+.header {
     width: 100%;
-    background-color: #121212;
+     background-color: var(--header-background-color);
+    color: var(--header-text-color);
     display: flex;
-    align-items: center; 
+    align-items: center;
     justify-content: center;
     height: 120px;
-    color: #ffffff;
     flex-direction: column;
     font-family: "Geologica", sans-serif;
 
     &__content {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content:space-between;
-    width: 1240px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        width: 1240px;
 
         &__content-logo-container {
-        display: flex;
-        align-items: center;
-        gap: 25px
+            display: flex;
+            align-items: center;
 
-        span {
-            font-size: 21px;
+            gap: 25px span {
+                font-size: 21px;
+            }
         }
-    }
     }
 
     &__info {
@@ -43,50 +41,130 @@
             }
 
             .upload-btn {
+                position: relative;
                 text-decoration: none;
-                display: flex;              
-                justify-content: center;     
-                align-items: center;         
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 text-align: center;
                 font-size: 14px;
-                background-color: #1A1A1A;
+                background-color: var(--dropdown-background-color);
+                color: var(--text-color);
+                box-shadow: 0px 8px 16px var(--shadow-color);
                 border: none;
                 width: 120px;
                 height: 40px;
-                color: white;
                 border-radius: 10px;
                 font-weight: 600;
+                overflow: hidden;
 
                 i {
                     margin-right: 5px;
                     align-items: center;
                 }
-                a{
+
+                a {
                     color: white;
-                    display: flex;           
+                    display: flex;
                     align-items: center;
-                    gap: 5px;        
+                    gap: 5px;
                 }
-                &:hover {
-                    border: 2px dashed white;
-                    background-color: transparent;
-                    cursor: pointer;
-                }
+
             }
+.upload-btn:hover {
+    background: var(--button-hover-background);
+    }
 
+.upload-btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 2px dashed white;
+    border-radius: inherit;
+    clip-path: polygon(
+        0% 0%, 0% 0%,   
+        0% 0%, 0% 0%
+    );
+    transition: clip-path 0.6s ease;
+}
+}
 
+.upload-btn:hover::before {
+   clip-path: polygon(
+        0% 0%, 100% 0%,   /* bovenlijn */
+        100% 100%, 0% 100% /* rechts → onder → links */
+    );
+}}}
 
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--dropdown-background-color);
+    color: var(--text-color);
+    box-shadow: 0px 8px 16px var(--shadow-color);
+    min-width: 160px;
+}
+.desc {
+  padding: 15px;
+  text-align: center;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
 
-        }
+.profile{
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    background-color: var(--background-color);
+    color: var(--text-color);
+
+    &:hover {
+        background-color: var(--hover-color);
     }
 }
 
+.logout{
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    background-color: var(--background-color);
+    color: var(--text-color);
+
+    &:hover {
+        background-color: var(--hover-color);
+    }
+}
+
+.settings{
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    background-color: var(--background-color);
+    color: var(--text-color);
+
+    &:hover {
+        background-color: var(--hover-color);
+    }
+}
+
+.sub-header__container__nav ul li{
+    transition: color var(--animation-duration) ease;
+    &hover{
+        color: var(--hover-color);
+    }
+}
 
 .sub-header {
     height: 70px;
-    background-color: #1A1A1A;
+    background-color: var(--subheader-background-color);
+    color: var(--subheader-text-color);
     display: flex;
-    justify-content: center; 
+    justify-content: center;
     align-items: center;
     margin-bottom: 25px;
     flex-direction: row;
@@ -94,27 +172,29 @@
 
     &__container {
         width: 1240px;
-            /* border: 1px solid red; */
+        /* border: 1px solid red; */
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
 
-         h1 {
-    font-size: 24px;
-    font-weight: 500;
-        
-    }
+        h1 {
+            font-size: 24px;
+            font-weight: 500;
+
+        }
+
         ul {
             display: flex;
             flex-direction: row;
             list-style: none;
             gap: 70px;
             font-weight: 500;
+
             li {
                 color: #3B3B3B;
 
-                span {
+                &:hover {
                     color: white;
                 }
             }
@@ -123,10 +203,34 @@
         a {
             text-decoration: none;
         }
-            }
-   
+    }
+
 }
-    
 
+.avatar-container {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.avatar-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
+.avatar-initials {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: var(--default-font-size); 
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); // For readability
+}

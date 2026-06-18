@@ -1,0 +1,493 @@
+// ──────────────────────────────────────────────
+//  Dashboard – main layout
+// ──────────────────────────────────────────────
+
+.dashboard-main-section {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    justify-content: space-between;
+    margin: 24px auto;
+    width: 1420px;
+    height: calc(100vh - 160px);
+    min-height: 680px;
+
+    // shared section heading
+    h3 {
+        font-family: var(--subtitle-font);
+        font-size: 15px;
+        font-weight: 600;
+        margin: 0 0 14px 0;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: var(--text-color);
+
+        i {
+            color: var(--muted-text-color);
+            font-size: 14px;
+        }
+    }
+
+    // ── Left column: Wachtrij ──────────────────
+    .queue {
+        width: 25%;
+        background-color: #121212;
+        height: 100%;
+        border-radius: 14px;
+        padding: var(--regular-container-padding);
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+    }
+
+    // ── Center column ─────────────────────────
+    &-center {
+        width: 40%;
+        height: 100%;
+        border-radius: 14px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    // ── Right column: Gereed ──────────────────
+    &__ready {
+        width: 25%;
+        background-color: #121212;
+        height: 100%;
+        border-radius: 14px;
+        padding: var(--regular-container-padding);
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
+// ──────────────────────────────────────────────
+//  Queue – scrollable item list
+// ──────────────────────────────────────────────
+
+.queue__container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(150, 150, 150, 0.3) transparent;
+
+    &::-webkit-scrollbar { width: 4px; }
+    &::-webkit-scrollbar-track { background: transparent; }
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(150, 150, 150, 0.35);
+        border-radius: 10px;
+    }
+
+    &__box {
+        position: relative;
+        height: 88px;
+        flex-shrink: 0;
+        background-color: var(--container-background-color);
+        border-radius: 10px;
+        padding: 14px 16px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        overflow: hidden;
+
+        &__left {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            width: 55%;
+
+            &--name {
+                font-size: 13px;
+                font-weight: 600;
+                color: var(--text-color);
+            }
+
+            &--date {
+                font-size: 11px;
+                color: var(--muted-text-color);
+            }
+        }
+
+        &__right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: space-between;
+            height: 100%;
+            width: 45%;
+        }
+
+        // status badge (reused on both queue and ready)
+        .queue__container__box__left--state,
+        .ready__container__box__left--state {
+            font-size: 11px;
+            font-weight: 600;
+            height: 26px;
+            min-width: 80px;
+            padding: 0 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--small-borrder-radius);
+            background-color: var(--secondary-gray-color);
+            color: var(--text-color);
+        }
+
+        .queue__container__box__left--id,
+        .ready__container__box__left--id {
+            font-size: 11px;
+            color: var(--muted-text-color);
+        }
+    }
+}
+
+
+// ──────────────────────────────────────────────
+//  Queue item – coloured bottom bar per status
+// ──────────────────────────────────────────────
+
+.queue-item-state {
+
+    &--pending,
+    &--accepted,
+    &--denied,
+    &--completed {
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 3px;
+        }
+    }
+
+    &--pending::after {
+        background: linear-gradient(90deg, #f59e0b, #f97316);
+    }
+
+    &--accepted::after {
+        background: linear-gradient(90deg, #34d399, #059669);
+    }
+
+    &--denied::after {
+        background: linear-gradient(90deg, #f87171, #dc2626);
+    }
+
+    // Completed items are shown in the Ready column, not the queue
+    &--completed {
+        display: none;
+    }
+
+    // Status badge colour per state
+    &--pending .queue__container__box__left--state {
+        background-color: rgba(245, 158, 11, 0.18);
+        color: #f59e0b;
+    }
+
+    &--accepted .queue__container__box__left--state {
+        background-color: rgba(52, 211, 153, 0.15);
+        color: #34d399;
+    }
+
+    &--denied .queue__container__box__left--state {
+        background-color: rgba(248, 113, 113, 0.15);
+        color: #f87171;
+    }
+}
+
+
+// ──────────────────────────────────────────────
+//  Ready – scrollable item list
+// ──────────────────────────────────────────────
+
+.ready__container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    flex: 1;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(150, 150, 150, 0.3) transparent;
+
+    &::-webkit-scrollbar { width: 4px; }
+    &::-webkit-scrollbar-track { background: transparent; }
+    &::-webkit-scrollbar-thumb {
+        background-color: rgba(150, 150, 150, 0.35);
+        border-radius: 10px;
+    }
+
+    &__box {
+        position: relative;
+        height: 88px;
+        flex-shrink: 0;
+        background-color: var(--container-background-color);
+        border-radius: 10px;
+        padding: 14px 16px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        overflow: hidden;
+
+        &__left {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            width: 55%;
+
+            &--name {
+                font-size: 13px;
+                font-weight: 600;
+                color: var(--text-color);
+            }
+
+            &--date {
+                font-size: 11px;
+                color: var(--muted-text-color);
+            }
+
+            &--state {
+                font-size: 11px;
+                font-weight: 600;
+                height: 26px;
+                min-width: 68px;
+                padding: 0 10px;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: var(--small-borrder-radius);
+                background-color: rgba(78, 173, 217, 0.15);
+                color: #4EADD9;
+            }
+
+            &--id {
+                font-size: 11px;
+                color: var(--muted-text-color);
+            }
+        }
+
+        &__right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: space-between;
+            height: 100%;
+            width: 45%;
+        }
+    }
+}
+
+// Ready items – teal bottom accent line
+.ready-item-state {
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 3px;
+        background: var(--main-gradient);
+    }
+}
+
+
+// ──────────────────────────────────────────────
+//  Centre – Overzicht stat cards (2×2 grid)
+// ──────────────────────────────────────────────
+
+.center-overzicht {
+    width: 100%;
+
+    &-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+
+        &-box {
+            height: 140px;
+            border-radius: 12px;
+            box-sizing: border-box;
+            padding: var(--regular-container-padding);
+            background: var(--main-gradient);
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+
+            // subtle inner shine
+            &::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                background: linear-gradient(135deg,
+                    rgba(255,255,255,0.12) 0%,
+                    rgba(255,255,255,0)   60%);
+                pointer-events: none;
+            }
+
+            &__content {
+                display: flex;
+                height: 100%;
+                align-items: center;
+                justify-content: space-between;
+                gap: 12px;
+                position: relative; // keep above ::before
+
+                div {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 4px;
+                }
+
+                h3 {
+                    font-size: 34px;
+                    font-weight: 700;
+                    margin: 0;
+                    color: #fff;
+                    line-height: 1;
+
+                    i { display: none; } // icon replaced by .content-icon
+                }
+
+                span {
+                    font-size: 11px;
+                    font-weight: 300;
+                    color: rgba(255,255,255,0.85);
+                }
+            }
+
+            // alternate cards: flip icon/text order
+            &:nth-child(even) {
+                background: var(--main-gradient-mirrored);
+
+                .center-overzicht-container-box__content {
+                    flex-direction: row-reverse;
+                }
+            }
+        }
+    }
+}
+
+// Round icon bubble inside stat cards
+.content-icon {
+    background-color: rgba(255, 255, 255, 0.25);
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+
+    i {
+        color: #fff !important;
+        font-size: 20px;
+        padding: 0 !important;
+    }
+}
+
+
+// ──────────────────────────────────────────────
+//  Centre – Notificaties
+// ──────────────────────────────────────────────
+
+.center-notis {
+    background-color: #121212;
+    width: 100%;
+    flex: 1;
+    border-radius: 14px;
+    padding: var(--regular-container-padding);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        overflow-y: auto;
+        flex: 1;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(150, 150, 150, 0.3) transparent;
+
+        &::-webkit-scrollbar { width: 4px; }
+        &::-webkit-scrollbar-track { background: transparent; }
+        &::-webkit-scrollbar-thumb {
+            background-color: rgba(150, 150, 150, 0.35);
+            border-radius: 10px;
+        }
+
+        &__box {
+            height: 58px;
+            flex-shrink: 0;
+            background-color: var(--container-background-color);
+            border-radius: 10px;
+            padding: 0 18px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+
+            &:hover {
+                background-color: var(--hover-color);
+            }
+
+            &__left {
+                display: flex;
+                flex-direction: row;
+                gap: 12px;
+                align-items: center;
+                width: 85%;
+
+                span {
+                    font-size: 12px;
+                    color: var(--text-color);
+                    line-height: 1.4;
+                }
+            }
+
+            &__right {
+                width: 15%;
+                text-align: right;
+                font-size: 11px;
+                font-weight: 500;
+                color: var(--muted-text-color);
+            }
+        }
+    }
+}
+
+// Notification status dots
+.notification-status--read {
+    width: 10px;
+    height: 10px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-color: var(--muted-text-color);
+}
+
+.notification-status--unread {
+    width: 10px;
+    height: 10px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--main-gradient);
+    box-shadow: 0 0 6px rgba(78, 173, 217, 0.6);
+}
