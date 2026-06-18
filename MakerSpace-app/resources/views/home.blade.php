@@ -12,7 +12,7 @@
         <section class="main-section" id="home-section">
             <div class="home-header">
                 <img class="Logo" src="{{ asset('images/Logo-large.png') }}" alt="Logo" width="564" height="164">
-                <span>Welkom bij VinciLab! Eigen ontwerp of niet, <br> we hebben wat je zoekt!</span>
+                <span>Welcome to VinciLab! Own design or not, <br> we have what you're looking for!</span>
                 <div class="home-header__buttons">
                     <button class="button-primary">Login</button><button class="button-secondary">Register</button>
                 </div>
@@ -21,7 +21,7 @@
                 <div class="home-infoblock__image"><img src="{{ asset('images/homepage/IMG_0833.jpg') }}" alt="home_image1"></div>
                 <div class="home-infoblock__text">
                     <div>
-                        <h3>Welkom bij VinciLab!</h3>
+                        <h3>Welcome to VinciLab!</h3>
                         Via deze website kun je eenvoudig jouw ontwerp uploaden en een printopdracht plaatsen. Kies het materiaal, formaat en de afwerking die het beste bij jouw project past. Ons team zorgt ervoor dat jouw ontwerp nauwkeurig en met zorg wordt geprint.
                     </div>
                 </div>
@@ -29,17 +29,17 @@
             <div class="home-infoblock">
                 <div class="home-infoblock__text">
                     <div class="text-right">
-                        <h3>Eigen ontwerp of niet!</h3>
-                        Heb je geen eigen ontwerp, maar wil je toch een 3D print laten maken? Geen probleem! We hebben een uitgebreide catalogus met kant-en-klare ontwerpen waaruit je kunt kiezen. Of je nu een school project hebt of gewoon iets leuks wilt laten printen, bij VinciLab ben je aan het juiste adres!
+                        <h3>Own design or not!</h3>
+                        Do you have your own design, but still want a 3D print made? No problem! We have an extensive catalog with ready-to-use designs from which you can choose. Whether you have a school project or just want to print something fun, at VinciLab you are at the right address!
                     </div>
                 </div>
                 <div class="home-infoblock__image"><img src="{{ asset('images/homepage/IMG_0815.jpg') }}" alt="home_image2"></div>
             </div>
             <div class="home-ending">
                 <div class="home-infoblock__image"><img src="{{ asset('images/homepage/IMG_0834.jpg') }}" alt="home_image1"></div>
-                <h2>Student bij DaVinci College Dordrecht?</h2>
-                <span>En wil je gebruik maken van onze 3D printers?</span>
-                <a href="{{ route('register') }}"><button class="button-primary">Vraag je account aan!</button></a>
+                <h2>Student at DaVinci College Dordrecht?</h2>
+                <span>And do you want to use our 3D printers?</span>
+                <a href="{{ route('register') }}"><button class="button-primary">Request your account!</button></a>
             </div>
         </section>
          @include('partials.footer')

@@ -18,7 +18,7 @@
         <section class="queue">
             <h3>
                 <i class="fa-solid fa-list-check"></i>
-                Wachtrij
+                Queue
             </h3>
             <div class="queue__container">
                 @foreach ($order as $o)
@@ -46,7 +46,7 @@
             <section class="center-overzicht">
                 <h3>
                     <i class="fa-solid fa-table-columns"></i>
-                    Overzicht
+                    Overview
                 </h3>
                 <div class="center-overzicht-container">
                     <div class="center-overzicht-container-box">
@@ -55,9 +55,9 @@
                                 <!-- aantal objecten geprint -->
                                 <h3>{{ $user->total_prints }}</h3>
                                 @if ($user->total_prints === 0)
-                                    <span>Geen prints gemaakt</span>
+                                    <span>No prints made</span>
                                 @else
-                                    <span>Totaal geprinte objecten</span>
+                                    <span>Total printed objects</span>
                                 @endif
                             </div>
                             <span class="content-icon">
@@ -75,7 +75,7 @@
                             <div>
                                 <!-- aantal in de wachtrij -->
                                 <h3>{{ $user->orders()->where('status', 'pending')->count() }}</h3>
-                                <span>In de wachtrij</span>
+                                <span>In the queue</span>
                             </div>
 
                         </div>
@@ -89,9 +89,9 @@
                                 <h3>{{ $user->orders()->where('status', ['pending', 'accepted', 'denied', 'completed'])->whereBetween('created_at', [now()->startOfWeek(), now()->endOfWeek()])->limit(5)->count() }}/5
                                 </h3>
                                 @if ($user->orders()->where('status', ['pending', 'accepted', 'denied', 'completed'])->whereBetween('created_at', [now()->startOfWeek(), now()->endOfWeek()])->limit(5)->count() >= 5)
-                                    <span style="color: red">Geen prints meer deze week</span>
+                                    <span style="color: red">No more prints this week</span>
                                 @else
-                                    <span>Prints voor deze week</span>
+                                    <span>Prints for this week</span>
                                 @endif
                             </div>
                             <span class="content-icon">
@@ -109,7 +109,7 @@
                             <div>
                                 <!-- aantal objecten geprint -->
                                 <h3>0</h3>
-                                <span>Notificaties</span>
+                                <span>Notifications</span>
                             </div>
 
                         </div>
@@ -128,7 +128,7 @@
                         <div class="center-notis__container__box__left">
 
                             <div class="notification-status--unread"></div>
-                            <span>Print 31 is klaar! Haal hem op bij de makerspace.</span>
+                            <span>Print 31 is ready! Pick it up at the makerspace.</span>
 
                         </div>
 
@@ -141,7 +141,7 @@
                         <div class="center-notis__container__box__left">
 
                             <div class="notification-status--unread"></div>
-                            <span>Print 31 is klaar! Haal hem op bij de makerspace.</span>
+                            <span>Print 31 is ready! Pick it up at the makerspace.</span>
 
                         </div>
 
@@ -154,7 +154,7 @@
                         <div class="center-notis__container__box__left">
 
                             <div class="notification-status--read"></div>
-                            <span>Print 31 is klaar! Haal hem op bij de makerspace.</span>
+                            <span>Print 31 is ready! Pick it up at the makerspace.</span>
 
                         </div>
 
@@ -169,7 +169,7 @@
 
         <!-- right row -->
         <section class="dashboard-main-section__ready">
-            <h3><i class="fa-solid fa-cube"></i>Gereed</h3>
+            <h3><i class="fa-solid fa-cube"></i>Ready</h3>
             <div class="ready__container">
                 @foreach ($order as $o)
                     @if ($o->status === 'completed')
