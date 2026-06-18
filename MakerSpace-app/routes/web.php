@@ -29,8 +29,18 @@ Route::get('/dashboard', function () {
     if ($userRole === 'admin') {
         return view('dashboard_admin_test');
     }
-    $orders = \App\Models\order::where('user_email', auth()->user()->email)->get();
-    return view('dashboard', ['order' => $orders]);
+
+    $user = auth()->user();
+    $orders = \App\Models\order::where('user_email', $user->email)->get();
+    $notifications = $user->notifications()->latest()->limit(10)->get();
+    $unreadCount = $user->unreadNotifications()->count();
+
+    return view('dashboard', [
+        'order' => $orders,
+        'user' => $user,
+        'notifications' => $notifications,
+        'unreadCount' => $unreadCount,
+    ]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 
@@ -46,8 +56,6 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
 
 
 Route::get('/product-view/{id}', [ItemController::class, 'show'])->name('product.view');
-
-Route::get('/dashboard', [Order_handeling::class, 'show'])->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::post('/order-handeling', [Order_handeling::class, 'order'])->name('order-handeling');
 
