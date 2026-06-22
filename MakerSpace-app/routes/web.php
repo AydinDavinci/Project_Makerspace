@@ -85,6 +85,7 @@ Route::get('/admin/dashboard', function () {
     ]);
 })->middleware(['auth', 'verified', 'role:admin'])->name('admin.dashboard');
 
-
+Route::get('/admin/orders/{order}/download', [Order_handeling::class, 'download'])
+    ->name('admin.order.download');
 
 require __DIR__.'/auth.php';
