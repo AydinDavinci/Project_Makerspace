@@ -108,8 +108,9 @@
                             </span>
                             <div>
                                 <!-- aantal objecten geprint -->
-                                <h3>0</h3>
+                                <h3>{{ $unreadCount ?? 0 }}</h3>
                                 <span>Notificaties</span>
+
                             </div>
 
                         </div>
@@ -123,35 +124,34 @@
                     Notifications
                 </h3>
                 <div class="center-notis__container">
+                    @forelse(($notifications ?? collect()) as $notification)
+                        <div class="center-notis__container__box">
+                            <div class="center-notis__container__box__left">
+                                <div class="{{ $notification->read_at ? 'notification-status--read' : 'notification-status--unread' }}"></div>
 
-                    <div class="center-notis__container__box">
+                                <span>
+                                    {{ $notification->data['message'] ?? 'Notification' }}
+                                </span>
+                            </div>
 
-                        <div class="center-notis__container__box__left">
-
-                            <div class="notification-status--unread"></div>
-                            <span>Print 31 is klaar! Haal hem op bij de makerspace.</span>
-
+                            <div class="center-notis__container__box__right">
+                                <span>{{ optional($notification->created_at)->diffForHumans() ?? '' }}</span>
+                            </div>
                         </div>
-
-                        <div class="center-notis__container__box__right">
-                            <span>0s</span>
+                    @empty
+                        <div class="center-notis__container__box">
+                            <div class="center-notis__container__box__left">
+                                <div class="notification-status--read"></div>
+                                <span>No notifications yet.</span>
+                            </div>
+                            <div class="center-notis__container__box__right">
+                                <span></span>
+                            </div>
                         </div>
-                    </div>
-                    <div class="center-notis__container__box">
-
-                        <div class="center-notis__container__box__left">
-
-                            <div class="notification-status--read"></div>
-                            <span>Print 32 is klaar! Haal hem op bij de makerspace.</span>
-
-                        </div>
-
-                        <div class="center-notis__container__box__right">
-                            <span>0s</span>
-                        </div>
-                    </div>
+                    @endforelse
                 </div>
             </section>
+
 
         </section>
 
