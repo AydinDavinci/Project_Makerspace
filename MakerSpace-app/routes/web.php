@@ -13,7 +13,7 @@ use App\Http\Controllers\ModelController;
 
 Route::get('/', function () {
     return view('auth.login');
-})->name('login');
+});
 
 Route::get('/catalog', [ItemController::class, 'index'])->name('catalog.view');
 Route::get('/item/{id}', [ItemController::class, 'show']);
