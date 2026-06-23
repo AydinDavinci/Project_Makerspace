@@ -13,7 +13,7 @@ use App\Http\Controllers\ModelController;
 
 Route::get('/', function () {
     return view('auth.login');
-})->name('login');
+});
 
 Route::get('/catalog', [ItemController::class, 'index'])->name('catalog.view');
 Route::get('/item/{id}', [ItemController::class, 'show']);
@@ -73,5 +73,11 @@ Route::get('/dashboard-admin', function () {
     return view('dashboard-admin');
 })->name('Dashboard Admin');
 
+Route::get('/settings', [App\Http\Controllers\SettingsController::class, 'index'])->name('settings')->middleware('auth');
+Route::post('/settings', [App\Http\Controllers\SettingsController::class, 'update'])->name('settings.update')->middleware('auth');
+
+Route::get('/faq', function () {
+    return view('faq');
+})->name('faq')->middleware('auth');
 
 require __DIR__.'/auth.php';
