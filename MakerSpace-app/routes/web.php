@@ -73,5 +73,11 @@ Route::get('/dashboard-admin', function () {
     return view('dashboard-admin');
 })->name('Dashboard Admin');
 
+Route::get('/settings', [App\Http\Controllers\SettingsController::class, 'index'])->name('settings')->middleware('auth');
+Route::post('/settings', [App\Http\Controllers\SettingsController::class, 'update'])->name('settings.update')->middleware('auth');
+
+Route::get('/faq', function () {
+    return view('faq');
+})->name('faq')->middleware('auth');
 
 require __DIR__.'/auth.php';
