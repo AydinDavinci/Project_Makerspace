@@ -16,32 +16,32 @@
                 </style>
                 <div class="faq-section" style="color: white;">
                     <details class="faq-item">
-                        <summary class="faq-question" style="color: white;">1. Heb ik een account nodig?</summary>
-                        <p class="faq-answer" style="color: white;">Ja, je hebt een account nodig, zonder een account kan je niet gebruikmaken van de website.</p>
+                        <summary class="faq-question" style="color: white;">1. Do I need an account?</summary>
+                        <p class="faq-answer" style="color: white;">Yes, you need an account to use the website.</p>
                     </details>
                     <details class="faq-item">
-                        <summary class="faq-question" style="color: white;">2. Moet ik betalen?</summary>
-                        <p class="faq-answer" style="color: white;">Nee, je hoeft niet te betalen.</p>
+                        <summary class="faq-question" style="color: white;">2. Do I need to pay?</summary>
+                        <p class="faq-answer" style="color: white;">No, you don't need to pay.</p>
                     </details>
                     <details class="faq-item">
-                        <summary class="faq-question" style="color: white;">3. Kan ik mijn bestelling later aanpassen?</summary>
-                        <p class="faq-answer" style="color: white;">Nee, als je een bestelling geplaatst hebt, is het niet aanpasbaar.</p>
+                        <summary class="faq-question" style="color: white;">3. Can I modify my order later?</summary>
+                        <p class="faq-answer" style="color: white;">No, once you have placed an order, it cannot be modified.</p>
                     </details>
                     <details class="faq-item">
-                        <summary class="faq-question" style="color: white;">4. Kan ik meerdere ontwerpen tegelijk uploaden?</summary>
-                        <p class="faq-answer" style="color: white;">Nee, je kan niet meerdere ontwerpen tegelijk uploaden.</p>
+                        <summary class="faq-question" style="color: white;">4. Can I upload multiple designs at once?</summary>
+                        <p class="faq-answer" style="color: white;">No, you cannot upload multiple designs at once.</p>
                     </details>
                     <details class="faq-item">
-                        <summary class="faq-question" style="color: white;">5. Is er spoedservice?</summary>
-                        <p class="faq-answer" style="color: white;">Ja, als je bestelling spoed heeft kan je dat aangeven.</p>
+                        <summary class="faq-question" style="color: white;">5. Is there expedited service?</summary>
+                        <p class="faq-answer" style="color: white;">Yes, if you have an urgent order, you can indicate this.</p>
                     </details>
                     <details class="faq-item">
-                        <summary class="faq-question" style="color: white;">6. Kan ik de kleur kiezen?</summary>
-                        <p class="faq-answer" style="color: white;">Ja, je kan de kleur van je product kiezen.</p>
+                        <summary class="faq-question" style="color: white;">6. Can I choose the color?</summary>
+                        <p class="faq-answer" style="color: white;">Yes, you can choose the color of your product.</p>
                     </details>
                     <details class="faq-item">
-                        <summary class="faq-question" style="color: white;">7. Welke formaten zijn beschikbaar?</summary>
-                        <p class="faq-answer" style="color: white;">Beschikbare formaten: .stl .cad .gcode .3mf</p>
+                        <summary class="faq-question" style="color: white;">7. What formats are available?</summary>
+                        <p class="faq-answer" style="color: white;">Available formats: .stl .cad .gcode .3mf</p>
                     </details>
                 </div>
             </div>

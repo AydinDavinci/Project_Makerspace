@@ -16,19 +16,19 @@
         <div class="main-section__catalog">
             <div class="main-section__filter">
                 <div class="main-section__filter-search">
-                    <input type="text" placeholder="Zoek op titel, studentnummer...">
+                    <input type="text" placeholder="Search by title, student number...">
                     <button><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
                 <div class="main-section__filter-options">
-                    <span>Naam</span>
+                    <span>Name</span>
                     <ul>
                         <li><i class="fa-solid fa-arrow-up-a-z "></i><span>A-Z</span></li>
                         <li><i class="fa-solid fa-arrow-up-z-a"></i><span>Z-A</span></li>
                     </ul>
-                    <span>Datum</span>
+                    <span>Date</span>
                     <ul>
-                        <li><i class="fa-solid fa-arrow-up-a-z"></i><span>nieuw-oud</span></li>
-                        <li><i class="fa-solid fa-arrow-up-z-a"></i><span>oud-nieuw</span></li>
+                        <li><i class="fa-solid fa-arrow-up-a-z"></i><span>new-old</span></li>
+                        <li><i class="fa-solid fa-arrow-up-z-a"></i><span>old-new</span></li>
                     </ul>
                 </div>
             </div>

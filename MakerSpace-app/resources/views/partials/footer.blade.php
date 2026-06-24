@@ -31,8 +31,8 @@
             <ul>
                 <li><a href="{{ route('login') }}">Login</a></li>
                 <li><a href="{{ route('register') }}">Register</a></li>
-                <li><a href="{{ route('password.request') }}">Wachtwoord vergeten?</a></li>
-                <li><a href="#">Instellingen</a></li>
+                <li><a href="{{ route('password.request') }}">Forgot Password?</a></li>
+                <li><a href="#">Settings</a></li>
             </ul>
         </div>
     </div>

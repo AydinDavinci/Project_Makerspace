@@ -67,7 +67,7 @@
             <ul>
                 <a href="{{ route('dashboard') }}"><li>Dashboard</li></a>
                 <a href="{{ route('catalog.view') }}"><li>Catalog</li></a>
-                <a href="{{ route('settings') }}"><li>Instellingen</li></a>
+                <a href="{{ route('settings') }}"><li>Settings</li></a>
                 <a href="{{ route('faq') }}"><li>FAQ</li></a>
             </ul>
         </div>
