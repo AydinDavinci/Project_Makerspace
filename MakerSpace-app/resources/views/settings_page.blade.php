@@ -31,6 +31,8 @@
         {{-- ── Right content panel ──────────────────── --}}
         <div class="settings-panel">
 
+
+            <!-- Hier staan de account instellingen -->
             {{-- Account tab --}}
             <div id="tab-account" class="settings-tab active">
                 @if(session('success'))
@@ -96,6 +98,8 @@
                 </div>
             </div>
 
+            <!-- Hier staan de wachtwoord instellingen -->
+
             {{-- Change Password (hidden sub-panel) --}}
             <div id="tab-change-password" class="settings-tab">
                 <h2 class="settings-panel__title">Wachtwoord wijzigen</h2>
@@ -122,6 +126,8 @@
                 </form>
             </div>
 
+            <!-- Instellingen over bestellingen van het account -->
+
             {{-- Bestellingen tab --}}
             <div id="tab-bestellingen" class="settings-tab">
                 <h2 class="settings-panel__title">Bestellingen</h2>
@@ -143,6 +149,9 @@
                     @endforelse
                 </div>
             </div>
+
+
+            <!-- hier staan de overige instellingen  -->
 
             {{-- Overig tab --}}
             <div id="tab-overig" class="settings-tab">
@@ -172,6 +181,8 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Admin instellingen -->
 
             {{-- Admin tab --}}
             @if(auth()->user()->role === 'admin')
